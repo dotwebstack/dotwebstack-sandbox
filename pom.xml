@@ -9,7 +9,7 @@
   <packaging>jar</packaging>
 
   <name>dotwebstack-sandbox</name>
-  <description>Demo project for Spring Boot</description>
+  <description>Sandbox project for the DotWebStack Framework</description>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
