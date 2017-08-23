@@ -4,7 +4,7 @@ A sandbox environment to play around with the DotWebStack framework.
 
 ## Usage
 
-Put your .ttl configuration files in `src/main/resources/model`.
+Put your .trig configuration files in `src/main/resources/model`.
 
 Put your OpenAPI Specification files in `src/main/resources/openapi`.
 
