@@ -1,0 +1,28 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+
+@prefix dc: <http://purl.org/dc/elements/1.1>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix stage: <http://localhost:8080/stage#>.
+
+stage:ArchiComponents a elmo:Representation ;
+	elmo:urlPattern "/query/archicomponents";
+	elmo:contains stage:HeaderAppearance;
+	elmo:contains stage:NavbarSearchAppearance;
+	elmo:fragment [
+		elmo:appliesTo "type";
+		rdfs:label "Type";
+	];
+	elmo:fragment [
+		elmo:appliesTo "comp";
+		rdfs:label "Element";
+		elmo:name "SUBJECT";
+	];
+	elmo:fragment [
+		elmo:appliesTo "rel";
+		rdfs:label "Realized by";
+	];
+	elmo:informationProduct stage:IP_ArchiComponents
+.

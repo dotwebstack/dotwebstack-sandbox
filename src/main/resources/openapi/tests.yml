@@ -1,0 +1,21 @@
+swagger: 2.0
+info:
+  title: Tests API
+  version: 1.0
+host: localhost
+basePath: /tests/api/v1
+produces:
+  - text/plain
+paths:
+  /query/archicomponents:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ArchiComponents"
+      responses:
+        200:
+          description: OK
+  /query/BlankNodes:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_BlankNodes_content"
+      responses:
+        200:
+          description: OK      

@@ -1,0 +1,49 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+
+@prefix dc: <http://purl.org/dc/elements/1.1>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix stage: <http://localhost:8080/stage#>.
+
+stage:IP_BlankNodes_data a elmo:InformationProduct ;
+	elmo:backend stage:MyLocalSparqlBackend ;
+	elmo:query '''
+		prefix testo: <http://localhost:8080/def/test#>
+		
+		CONSTRUCT {
+			?s rdfs:label ?label.
+			?s testo:largestCities ?list.
+			?head rdf:rest ?rest.
+			?head rdf:first ?city.
+		}
+		WHERE {
+			GRAPH <@STAGE@> {
+				?s rdfs:label ?label.
+				?s testo:largestCities ?list.
+				?list rdf:rest* ?head.
+				?head rdf:rest ?rest.
+				?head rdf:first ?city.
+				FILTER (?s = <http://dbpedia.org/resource/Utrecht_(province)>)
+			}
+		}
+	''' ;
+.
+
+stage:IP_BlankNodes_content a elmo:InformationProduct ;
+	elmo:backend stage:MyLocalSparqlBackend ;
+	elmo:query '''
+		prefix testo: <http://localhost:8080/def/test#>
+		
+		CONSTRUCT {
+			?s rdfs:label ?label.
+			?s testo:largestCities ?city
+		}
+		WHERE {
+			?s rdfs:label ?label.
+			?s testo:largestCities/rdf:rest*/rdf:first ?city
+			FILTER (?s = <http://dbpedia.org/resource/Utrecht_(province)>)
+		}
+	''' ;
+.

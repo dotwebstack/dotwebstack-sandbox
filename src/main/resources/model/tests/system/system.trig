@@ -1,24 +1,26 @@
 @prefix elmo: <http://dotwebstack.org/def/elmo#>.
 
-@prefix stage: <http://localhost:8080/stage#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix dc: <http://purl.org/dc/elements/1.1>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix stage: <http://localhost:8080/stage#>.
 
 # System and configuration graph
 
 GRAPH stage: {
-	stage:TestTheatre a elmo:Theatre;
+	stage:TestTheatre a elmo:Theatre ;
 		rdfs:label "The test theatre, using all vocabulary statements";
 		dc:title "Test theatre";
 	.
 	
-	stage:TestSite a elmo:Site;
+	stage:TestSite a elmo:Site ;
 		elmo:domain "localhost:8080";
 	.
 	
-	stage:TestStage a elmo:Stage;
+	stage:TestStage a elmo:Stage ;
 		elmo:site stage:TestSite;
-		elmo:basePath "test";
+		elmo:basePath "/tests";
 	.
 }
