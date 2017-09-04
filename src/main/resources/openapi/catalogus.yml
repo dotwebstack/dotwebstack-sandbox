@@ -13,6 +13,16 @@ paths:
       responses:
         200:
           description: OK
+    post:
+      x-dotwebstack-transaction: "http://localhost:8080/catalogus/dso#ConceptPOST"
+      responses:
+        200:
+          description: OK
+    put:
+      x-dotwebstack-transaction: "http://localhost:8080/catalogus/dso#ConceptPUT"
+      responses:
+        200:
+          description: OK
   /id/concept/{id}:
     get:
       x-dotwebstack-information-product: "http://localhost:8080/catalogus/dso#Concept"
