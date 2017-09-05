@@ -37,22 +37,22 @@
     <dependency>
       <groupId>org.dotwebstack.framework</groupId>
       <artifactId>dotwebstack-core</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.dotwebstack.framework</groupId>
       <artifactId>dotwebstack-backend-sparql</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.dotwebstack.framework</groupId>
       <artifactId>dotwebstack-frontend-ld</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.7-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.dotwebstack.framework</groupId>
       <artifactId>dotwebstack-frontend-openapi</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>0.0.7-SNAPSHOT</version>
     </dependency>
 
     <dependency>

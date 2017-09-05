@@ -1,2 +1,6 @@
+spring:
+  jersey:
+    type: filter
+
 logging.level:
   org.dotwebstack.framework: DEBUG
