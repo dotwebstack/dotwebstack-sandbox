@@ -7,22 +7,23 @@
 
 @prefix stage: <http://localhost:8080/stage#>.
 
-stage:ArchiComponents a elmo:Representation ;
-	elmo:urlPattern "/query/archicomponents";
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
-	elmo:fragment [
-		elmo:appliesTo "type";
-		rdfs:label "Type";
-	];
-	elmo:fragment [
-		elmo:appliesTo "comp";
-		rdfs:label "Element";
-		elmo:name "SUBJECT";
-	];
-	elmo:fragment [
-		elmo:appliesTo "rel";
-		rdfs:label "Realized by";
-	];
-	elmo:informationProduct stage:IP_ArchiComponents
+stage:ArchiComponents a elmo:Representation;
+  elmo:stage stage:TestStage;
+  elmo:urlPattern "/archi-components";
+  elmo:contains stage:HeaderAppearance;
+  elmo:contains stage:NavbarSearchAppearance;
+  elmo:fragment [
+    elmo:appliesTo "type";
+    rdfs:label "Type";
+  ];
+  elmo:fragment [
+    elmo:appliesTo "comp";
+    rdfs:label "Element";
+    elmo:name "SUBJECT";
+  ];
+  elmo:fragment [
+    elmo:appliesTo "rel";
+    rdfs:label "Realized by";
+  ];
+  elmo:informationProduct stage:IP_ArchiComponents
 .

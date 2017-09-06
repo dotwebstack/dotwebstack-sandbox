@@ -9,8 +9,8 @@
 
 # SparqlBackend
 
-GRAPH stage: {	
-	stage:MyLocalSparqlBackend a elmo:SparqlBackend ;
-		elmo:endpoint "http://localhost:8890/sparql"^^xsd:anyURI;
-	.
+graph stage: {  
+  stage:MyLocalSparqlBackend a elmo:SparqlBackend;
+    elmo:endpoint "http://localhost:8890/sparql"^^xsd:anyURI;
+  .
 }

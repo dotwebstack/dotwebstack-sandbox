@@ -7,13 +7,13 @@ basePath: /tests/api/v1
 produces:
   - text/plain
 paths:
-  /query/archicomponents:
+  /archi-components:
     get:
       x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ArchiComponents"
       responses:
         200:
           description: OK
-  /query/BlankNodes:
+  /blank-nodes:
     get:
       x-dotwebstack-information-product: "http://localhost:8080/stage#IP_BlankNodes_content"
       responses:

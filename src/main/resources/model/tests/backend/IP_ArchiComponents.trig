@@ -7,21 +7,21 @@
 
 @prefix stage: <http://localhost:8080/stage#>.
 
-stage:IP_ArchiComponents a elmo:InformationProduct ;
-	elmo:backend stage:MyLocalSparqlBackend;
-	elmo:query '''
-		prefix archi: <http://bp4mc2.org/def/archi#>
-		
-		SELECT ?type ?comp ?comp_label ?rel ?rel_label
-		WHERE {
-			GRAPH <http://localhost:8080/container/archi> {
-				?comp rdf:type ?type.
-				?comp rdfs:label ?comp_label.
-				OPTIONAL {
-					?rel archi:realizes ?comp.
-					?rel rdfs:label ?rel_label
-				}
-			}
-		}
-	''';
+stage:IP_ArchiComponents a elmo:InformationProduct;
+  elmo:backend stage:MyLocalSparqlBackend;
+  elmo:query '''
+    prefix archi: <http://bp4mc2.org/def/archi#>
+    
+    select ?type ?comp ?comp_label ?rel ?rel_label
+    where {
+      graph <http://localhost:8080/container/archi> {
+        ?comp rdf:type ?type.
+        ?comp rdfs:label ?comp_label.
+        optional {
+          ?rel archi:realizes ?comp.
+          ?rel rdfs:label ?rel_label
+        }
+      }
+    }
+  ''';
 .
