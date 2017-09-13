@@ -19,7 +19,12 @@ catalogus:CatalogusSite a elmo:Site;
 
 catalogus:DSOStage a elmo:Stage;
   elmo:site catalogus:CatalogusSite;
-  elmo:basePath "dso";
+  elmo:basePath "/dso";
+.
+
+catalogus:INFOStage a elmo:Stage;
+  elmo:site catalogus:CatalogusSite;
+  elmo:basePath "/i";
 .
 
 catalogus:Concept a elmo:InformationProduct;
@@ -181,4 +186,10 @@ catalogus:Overzichtspagina a elmo:Representation;
   elmo:urlPattern "/concepten";
   elmo:informationProduct catalogus:Concepten;
   elmo:stage catalogus:DSOStage;
+.
+
+catalogus:Infopagina a elmo:Representation;
+  elmo:urlPattern "/info";
+  elmo:informationProduct catalogus:Concepten;
+  elmo:stage catalogus:INFOStage;
 .
