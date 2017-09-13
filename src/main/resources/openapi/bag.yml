@@ -1,0 +1,17 @@
+swagger: 2.0
+info:
+  title: BAG API
+  version: 1.0
+host: localhost
+basePath: /bag/api/v1
+produces:
+  - application/json
+paths:
+  /panden:
+    get:
+      x-dotwebstack-information-product: "http://bag.basisregistraties.nl#Panden"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
