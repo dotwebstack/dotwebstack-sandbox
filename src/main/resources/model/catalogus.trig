@@ -13,6 +13,7 @@ catalogus:CatalogusTheatre a elmo:Theatre;
   dc:title "Catalogus theatre";
 .
 
+
 catalogus:CatalogusSite a elmo:Site;
   elmo:domain "localhost:8080";
 .
