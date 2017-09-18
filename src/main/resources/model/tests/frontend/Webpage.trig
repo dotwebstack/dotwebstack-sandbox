@@ -8,10 +8,13 @@
 @prefix stage: <http://localhost:8080/stage#>.
 @prefix lotro: <http://localhost:8080/def/lotr#>.
 
-# SparqlBackend
-
-graph stage:TestSystem {  
-  stage:MyLocalSparqlBackend a elmo:SparqlBackend;
-    elmo:endpoint "http://localhost:8890/sparql"^^xsd:anyURI;
+graph stage:TestStage {
+  stage:Webpage a elmo:Representation;
+    elmo:url-pattern "/webpage$";
+    elmo:appearance elmo:VocabularyAppearance;
+    elmo:index "1";
+    elmo:contains stage:HeaderAppearance;
+    elmo:contains stage:NavbarSearchAppearance;
+    elmo:webpage "http://www.w3.org/2000/01/rdf-schema";
   .
 }

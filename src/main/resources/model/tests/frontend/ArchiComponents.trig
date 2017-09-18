@@ -6,24 +6,30 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 @prefix stage: <http://localhost:8080/stage#>.
+@prefix lotro: <http://localhost:8080/def/lotr#>.
 
-stage:ArchiComponents a elmo:Representation;
-  elmo:stage stage:TestStage;
-  elmo:urlPattern "/archi-components";
-  elmo:contains stage:HeaderAppearance;
-  elmo:contains stage:NavbarSearchAppearance;
-  elmo:fragment [
-    elmo:appliesTo "type";
-    rdfs:label "Type";
-  ];
-  elmo:fragment [
-    elmo:appliesTo "comp";
-    rdfs:label "Element";
-    elmo:name "SUBJECT";
-  ];
-  elmo:fragment [
-    elmo:appliesTo "rel";
-    rdfs:label "Realized by";
-  ];
-  elmo:informationProduct stage:IP_ArchiComponents
-.
+graph stage:TestStage {
+  stage:ArchiComponents a elmo:Representation;
+    elmo:urlPattern "/archi-components";
+    elmo:contains stage:HeaderAppearance;
+    elmo:contains stage:NavbarSearchAppearance;
+    elmo:contains stage:TableArchiComponents;
+  .
+  
+  stage:TableArchiComponents a elmo:Representation;
+    elmo:fragment [
+      elmo:appliesTo "type";
+      rdfs:label "Type";
+    ];
+    elmo:fragment [
+      elmo:appliesTo "comp";
+      rdfs:label "Element";
+      elmo:name "SUBJECT";
+    ];
+    elmo:fragment [
+      elmo:appliesTo "rel";
+      rdfs:label "Realized by";
+    ];
+    elmo:informationProduct stage:IP_ArchiComponents
+  .
+}

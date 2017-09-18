@@ -9,19 +9,21 @@
 @prefix lotro: <http://localhost:8080/def/lotr#>.
 
 graph stage:TestStage {
-  stage:IP_ArchiComponents a elmo:InformationProduct;
+  stage:IP_CharacterResource a elmo:InformationProduct;
     elmo:backend stage:MyLocalSparqlBackend;
     elmo:query '''
-      prefix archi: <http://bp4mc2.org/def/archi#>
-      
-      select ?type ?comp ?comp_label ?rel ?rel_label
+      prefix wdrs: <http://www.w3.org/2007/05/powder-s#>
+      construct {
+        <@IDSUBJECT@> ?p ?o.
+        ?o rdfs:label ?olabel.
+        <@IDSUBJECT@> wdrs:isDescribedBy <@DOCSUBJECT@>
+      }
       where {
-        graph <http://localhost:8080/container/archi> {
-          ?comp rdf:type ?type.
-          ?comp rdfs:label ?comp_label.
-          optional {
-            ?rel archi:realizes ?comp.
-            ?rel rdfs:label ?rel_label
+        graph <@STAGE@> {
+          <@IDSUBJECT@> ?p ?o
+          OPTIONAL {
+            ?o rdfs:label ?olabel
+            FILTER (lang(?olabel)="@LANGUAGE@" or lang(?olabel)="")
           }
         }
       }

@@ -7,15 +7,109 @@ basePath: /tests/api/v1
 produces:
   - text/plain
 paths:
-  /archi-components:
+
+#-------------------------------------------------------------------------------------------------------    IP_ArchiComponents    --------------------------------------------------------------------  
+
+  /query/archicomponents:
     get:
       x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ArchiComponents"
       responses:
         200:
           description: OK
-  /blank-nodes:
+          
+#-------------------------------------------------------------------------------------------------------    IP_BlankNodes_content    --------------------------------------------------------------------  
+          
+  /query/BlankNodes:
     get:
       x-dotwebstack-information-product: "http://localhost:8080/stage#IP_BlankNodes_content"
       responses:
         200:
-          description: OK      
+          description: OK 
+          
+#-------------------------------------------------------------------------------------------------------    IP_Character --------------------------------------------------------------------            
+
+  /character:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_CharacterResource"
+      responses:
+        200:
+          description: OK
+          
+#-------------------------------------------------------------------------------------------------------    IP_XPLTreeview    --------------------------------------------------------------------            
+          
+  /xpl-treeview:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_XPLTreeview"
+      responses:
+        200:
+          description: OK   
+     
+#-------------------------------------------------------------------------------------------------------    IP_VocabularyAppearance    --------------------------------------------------------------------  
+          
+  /uploaded-vocabulary:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedVocabulary"
+      responses:
+        200:
+          description: OK            
+
+  /uploaded-model:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedModel"
+      responses:
+        200:
+          description: OK     
+            
+            
+  /uploaded-shapes:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedShapes"
+      responses:
+        200:
+          description: OK           
+
+  /uploaded-shapes-model:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedShapesModel"
+      responses:
+        200:
+          description: OK  
+
+  /uploaded-shapes.yed:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedShapesAppearanceYed"
+      responses:
+        200:
+          description: OK  
+
+  /uploaded-vocabulary.yed:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedVocabularyAppearanceYed"
+      responses:
+        200:
+          description: OK  
+
+  /lotr.yed:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_VocabularyAppearanceYed"
+      responses:
+        200:
+          description: OK  
+          
+  /lotr.ttl:
+  /lotr.xml:
+  /lotr.json:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_VocabularyQuery"
+      responses:
+        200:
+          description: OK  
+
+  #-------------------------------------------------------------------------------------------------------    IP_VirtualSparql    --------------------------------------------------------------------  
+
+  /virtual-sparql$:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_VirtualSparql"
+      responses:
+        200:
+          description: OK            

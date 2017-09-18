@@ -1,0 +1,126 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+
+@prefix dc: <http://purl.org/dc/elements/1.1>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+@prefix stage: <http://localhost:8080/stage#>.
+@prefix lotro: <http://localhost:8080/def/lotr#>.
+
+graph stage:TestStage {
+
+  # --------------------------------------------------------------------------------------------------------------------------------------  VocabularyAppearance -------------------------------------------------
+
+  stage:VocabularyAppearance	a	elmo:Representation;
+    elmo:url-pattern	"/lotr(\\.(xml|ttl|json))?$";
+    elmo:contains stage:HeaderAppearance;
+    elmo:contains stage:NavbarSearchAppearance;
+    elmo:contains stage:VocabularyAppearanceQuery
+  .
+  
+  stage:VocabularyAppearanceQuery a elmo:Representation;
+    elmo:appearance elmo:VocabularyAppearance;
+    elmo:informationProduct stage:IP_VocabularyQuery
+  .
+
+  # --------------------------------------------------------------------------------------------------------------------------------------  UploadedVocabulary -------------------------------------------------
+
+  stage:UploadedVocabulary a elmo:Representation;
+    elmo:url-pattern "/uploaded-vocabulary$";
+    elmo:contains stage:HeaderAppearance;
+    elmo:contains stage:NavbarSearchAppearance;
+    elmo:contains stage:UploadedVocabularyQuery
+  .
+  
+  stage:UploadedVocabularyQuery a elmo:Representation;
+    elmo:appearance elmo:VocabularyAppearance;
+    elmo:informationProduct stage:IP_UploadedVocabulary
+  .
+
+  # --------------------------------------------------------------------------------------------------------------------------------------  UploadedModelAppearance -------------------------------------------------
+
+  stage:UploadedModelAppearance a elmo:Representation;
+    elmo:url-pattern "/uploaded-model";
+    elmo:index "1";
+    elmo:contains stage:HeaderAppearance;
+    elmo:contains stage:NavbarSearchAppearance
+    elmo:contains stage:UploadedModelAppearanceQuery
+  .
+  
+  stage:UploadedModelAppearanceQuery a elmo:Representation;
+    elmo:appearance elmo:ModelAppearance;
+    elmo:informationProduct stage:IP_UploadedModelAppearance
+  .
+
+  # --------------------------------------------------------------------------------------------------------------------------------------  UploadedShapes -------------------------------------------------
+
+  stage:UploadedShapes a elmo:Representation;
+    elmo:url-pattern "/uploaded-shapes$";
+    elmo:contains stage:HeaderAppearance;
+    elmo:contains stage:NavbarSearchAppearance;
+    elmo:contains stage:UploadedShapesQuery
+  .
+  
+  stage:UploadedShapesQuery a elmo:Representation;
+    elmo:appearance elmo:VocabularyAppearance;
+    elmo:informationProduct stage:IP_UploadedShapesQuery
+  .
+
+  # --------------------------------------------------------------------------------------------------------------------------------------  UploadedShapesModel -------------------------------------------------
+
+  stage:UploadedShapesModel a elmo:Representation;
+    elmo:url-pattern "/uploaded-shapes-model";
+    elmo:index "1";
+    elmo:contains stage:HeaderAppearance;
+    elmo:contains stage:NavbarSearchAppearance;
+    elmo:contains stage:UploadedShapesModelQuery
+  .
+  
+  stage:UploadedShapesModelQuery a elmo:Representation;
+    elmo:appearance elmo:ModelAppearance;	
+    elmo:informationProduct stage:IP_UploadedShapesQuery
+  .
+
+  # --------------------------------------------------------------------------------------------------------------------------------------  UploadedShapesAppearanceYed -------------------------------------------------
+
+  stage:UploadedShapesAppearanceYed a elmo:Representation;
+    elmo:url-pattern	"/uploaded-shapes\\.yed$";
+    elmo:layer elmo:TopLayer;
+    elmo:fragment [
+      elmo:applies-to rdfs:subClassOf;
+      rdfs:label "";
+      yed:sourceArrow "none";
+      yed:targetArrow "white_delta";
+    ];
+    elmo:informationProduct stage:IP_UploadedShapesAppearanceYed
+  .
+
+  # --------------------------------------------------------------------------------------------------------------------------------------  UploadedVocabularyAppearanceYed -------------------------------------------------	
+
+  stage:UploadedVocabularyAppearanceYed a elmo:Representation;
+    elmo:url-pattern	"/uploaded-vocabulary\\.yed$";
+    elmo:layer elmo:TopLayer;
+    elmo:fragment [
+      elmo:applies-to rdfs:subClassOf;
+      rdfs:label "";
+      yed:sourceArrow "none";
+      yed:targetArrow "white_delta";
+    ];
+    elmo:informationProduct stage:IP_UploadedVocabularyAppearanceYed
+  .
+
+  # --------------------------------------------------------------------------------------------------------------------------------------  VocabularyAppearanceYed -------------------------------------------------
+
+  stage:VocabularyAppearanceYed a elmo:Representation;
+    elmo:url-pattern	"/lotr\\.yed?$";
+    elmo:layer elmo:TopLayer;
+    elmo:fragment [
+      elmo:applies-to rdfs:subClassOf;
+      rdfs:label "";
+      yed:sourceArrow "none";
+      yed:targetArrow "white_delta";
+    ];
+    elmo:informationProduct stage:IP_VocabularyAppearanceYed
+  .
+}
