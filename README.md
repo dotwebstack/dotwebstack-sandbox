@@ -2,6 +2,8 @@
 
 A sandbox environment to play around with the DotWebStack framework.
 
+[![Build Status](https://travis-ci.org/dotwebstack/dotwebstack-sandbox.svg?branch=master)](https://travis-ci.org/dotwebstack/dotwebstack-sandbox)
+
 ## Usage
 
 Put your .trig configuration files in `src/main/resources/model`.
