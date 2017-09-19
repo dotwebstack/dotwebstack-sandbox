@@ -5,7 +5,7 @@ info:
 host: localhost
 basePath: /dbp/api/v1
 produces:
-  - text/plain
+  - application/json
 paths:
   /breweries:
     get:
@@ -13,9 +13,13 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            type: array
   /breweries/{id}:
     get:
       x-dotwebstack-information-product: "http://dbeerpedia.org#Breweries"
       responses:
         200:
           description: OK
+          schema:
+            type: object
