@@ -7,6 +7,7 @@
 
 @prefix stage: <http://localhost:8080/stage#>.
 @prefix lotro: <http://localhost:8080/def/lotr#>.
+@prefix yed: <http://bp4mc2.org/yed#>.
 
 graph stage:TestStage {
 
@@ -44,7 +45,7 @@ graph stage:TestStage {
     elmo:url-pattern "/uploaded-model";
     elmo:index "1";
     elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance
+    elmo:contains stage:NavbarSearchAppearance;
     elmo:contains stage:UploadedModelAppearanceQuery
   .
   
