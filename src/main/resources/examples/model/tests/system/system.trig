@@ -9,7 +9,7 @@
 
 # System and configuration graph
 
-graph stage:TestSystem {
+graph stage:TestTheatre {
   stage:TestTheatre a elmo:Theatre;
     rdfs:label "The test theatre, using all vocabulary statements";
     dc:title "Test theatre";

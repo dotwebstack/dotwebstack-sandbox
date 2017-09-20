@@ -8,7 +8,7 @@
 @prefix stage: <http://localhost:8080/stage#>.
 @prefix lotro: <http://localhost:8080/def/lotr#>.
 
-graph stage:TestStage {
+graph stage:TestTheatre {
   stage:IP_CharacterResource a elmo:InformationProduct;
     elmo:backend stage:MyLocalSparqlBackend;
     elmo:query '''

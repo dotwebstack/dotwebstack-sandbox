@@ -10,7 +10,7 @@
 
 # SparqlBackend
 
-graph stage:TestSystem {  
+graph stage:TestTheatre {  
   stage:MyLocalSparqlBackend a elmo:SparqlBackend;
     elmo:endpoint "http://localhost:8890/sparql"^^xsd:anyURI;
   .

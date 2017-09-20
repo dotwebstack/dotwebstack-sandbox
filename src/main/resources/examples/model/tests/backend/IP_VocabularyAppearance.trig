@@ -9,7 +9,7 @@
 @prefix lotro: <http://localhost:8080/def/lotr#>.
 
 
-graph stage:TestStage {
+graph stage:TestTheatre {
   # --------------------------------------------------------------------------------------------------------------------------------------  VocabularyQuery -------------------------------------------------
   stage:IP_VocabularyQuery a elmo:InformationProduct;
     elmo:backend stage:MyLocalSparqlBackend;
