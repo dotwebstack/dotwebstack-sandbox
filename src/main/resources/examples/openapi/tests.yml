@@ -105,7 +105,7 @@ paths:
         200:
           description: OK  
 
-  #-------------------------------------------------------------------------------------------------------    IP_VirtualSparql    --------------------------------------------------------------------  
+#-------------------------------------------------------------------------------------------------------    IP_VirtualSparql    --------------------------------------------------------------------  
 
   /virtual-sparql$:
     get:
@@ -113,3 +113,48 @@ paths:
       responses:
         200:
           description: OK            
+  
+
+#-------------------------------------------------------------------------------------------------------    IP_TextAppearance    --------------------------------------------------------------------    
+
+  /text-appearance$:
+  get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_TextAppearance"
+      responses:
+        200:
+          description: OK  
+#-------------------------------------------------------------------------------------------------------    IP_TableAppearance   --------------------------------------------------------------------    
+
+  /table-appearance$:
+   get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_TableAppearanceQuery2"
+      responses:
+        200:
+          description: OK  
+
+#-------------------------------------------------------------------------------------------------------    IP_StylesheetTest   --------------------------------------------------------------------    
+         
+  /stylesheet-test:
+   get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Stylesheet"
+      responses:
+        200:
+          description: OK   
+ #-------------------------------------------------------------------------------------------------------    IP_SesameFormats   --------------------------------------------------------------------    
+    
+  /sesame-selectformats:
+    get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Sesame_SelectFormats"
+      responses:
+        200:
+          description: OK   
+  
+ /sesame-constructformats:
+     get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Sesame_ConstructFormats"
+      responses:
+        200:
+          description: OK  
+  
+  
+  
