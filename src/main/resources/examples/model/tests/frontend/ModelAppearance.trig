@@ -1,0 +1,12 @@
+graph stage:TestStage {
+
+stage:ModelAppearance a elmo:Representation;
+	elmo:url-pattern "/modelappearance";
+	elmo:index "1";
+	elmo:contains stage:HeaderAppearance;
+	elmo:contains stage:NavbarSearchAppearance;
+	elmo:appearance elmo:ModelAppearance;
+	
+	elmo:informationProduct stage:IP_ModelAppearance
+.	
+	}

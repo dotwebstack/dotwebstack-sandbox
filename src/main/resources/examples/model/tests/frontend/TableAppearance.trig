@@ -27,11 +27,11 @@ stage:TableAppearance2_table1 a elmo:Representation;
 	elmo:index "1";
 	elmo:informationProduct stage:IP_TableAppearanceQuery3
 	
-	
+.	
 stage:TableAppearance2_table2 a elmo:Representation;
 	rdfs:label "All defined properties within the test dataset";
 	elmo:index "2";
 	elmo:informationProduct stage:IP_TableAppearanceQuery4
-
+.
 
 }

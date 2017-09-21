@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 @prefix config: <http://dotwebstack.org/configuration/>.
-
+#Stage vervangen voor config? Zie opmerkingen Marco
 #@prefix stage: <http://localhost:8080/stage#>.
 
 @prefix lotro: <http://localhost:8080/def/lotr#>.
@@ -16,3 +16,8 @@
 @prefix dbo: <http://dbpedia.org/ontology/>.
 @prefix dbpedia: <http://dbpedia.org/resource/>.
 @prefix dbp: <http://dbpedia.org/property/>.
+@prefix exont: <http://localhost:8080/def#>.
+
+@prefix updatestage: <http://localhost:8080/update/>.
+@prefix testupdatestage: <http://localhost:8888/update/>.
+@prefix ldtupdatestage: <http://localhost:8080/ldt/update/>.

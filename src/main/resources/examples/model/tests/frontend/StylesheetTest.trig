@@ -10,5 +10,5 @@ stage:StylesheetTest a elmo:Representation;
 	html:stylesheet "/css/icons.css";
 	elmo:index "1";
  elmo:informationProduct stage:IP_Stylesheet
-	
+ .
 }

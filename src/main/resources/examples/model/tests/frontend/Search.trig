@@ -1,0 +1,21 @@
+graph stage:TestStage {
+
+stage:Search a elmo:Representation;
+	elmo:url-pattern "/search$";
+	elmo:index "1";
+	elmo:contains stage:HeaderAppearance;
+	elmo:contains stage:NavbarSearchAppearance;
+	elmo:fragment [
+		elmo:applies-to "s";
+		elmo:name "SUBJECT";
+		rdfs:label "Search results"@en;
+		rdfs:label "Zoekresultaten"@nl;
+	];
+	elmo:fragment [
+		elmo:applies-to "type";
+		rdfs:label "Type";
+	];
+	
+elmo:informationProduct stage:IP_Search
+.
+}

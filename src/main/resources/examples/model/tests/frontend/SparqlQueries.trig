@@ -2,4 +2,5 @@ graph stage:TestStage {
 stage:QueryAllGraphs a elmo:Query;
 	 rdfs:label "All named graphs";
 	 elmo:informationProduct stage:IP_SparqlQueries
+.
 }

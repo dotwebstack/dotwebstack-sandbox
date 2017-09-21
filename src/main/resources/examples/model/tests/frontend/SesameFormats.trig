@@ -28,7 +28,7 @@ stage:Sesame_SelectFormats_content a elmo:Representation;
 	elmo:index "2";
 	elmo:endpoint <http://localhost:7200/repositories/data>;
 	elmo:informationProduct stage:IP_Sesame_SelectFormats_content
-
+.
 	
 stage:Sesame_ConstructFormats a elmo:Representation;
 	elmo:url-pattern "/sesame-constructformats";
@@ -40,7 +40,7 @@ stage:Sesame_ConstructFormats a elmo:Representation;
 	#elmo:appearance elmo:HiddenAppearance;
 	elmo:endpoint <http://localhost:7200/repositories/data>;	
 	elmo:informationProduct stage:IP_Sesame_ConstructFormats
-	
+.	
 
 stage:Sesame_Formats_constructTabs elmo:index "1";
 	elmo:appearance elmo:IndexAppearance;
@@ -56,5 +56,5 @@ stage:Sesame_ConstructFormats_content a elmo:Representation;
 	elmo:index "2";
 	elmo:endpoint <http://localhost:7200/repositories/data>;
 	elmo:informationProduct stage:IP_Sesame_ConstructFormats_content
-	
+.	
 }

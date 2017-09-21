@@ -1,0 +1,12 @@
+graph stage:TestStage {
+
+stage:ServiceDuo a elmo:Representation;
+	elmo:url-pattern "/service-duo$";
+	elmo:index "1";
+	elmo:contains stage:HeaderAppearance;
+	elmo:contains stage:NavbarSearchAppearance;
+#	elmo:service "http://api.duo.nl/v0/search";
+#	elmo:service "http://api.duo.nl/v0/datasets/01.-hoofdvestigingen-vo/search?brin=18BR";
+	elmo:informationProduct stage:IP_ServiceDuo
+.
+}
