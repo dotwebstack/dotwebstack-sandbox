@@ -1,19 +1,19 @@
-graph stage:TestTheatre {
-  stage:IP_CharacterResource a elmo:InformationProduct;
+graph config:TestTheatre {
+  config:IP_CharacterResource a elmo:InformationProduct;
     
     elmo:query '''
       prefix wdrs: <http://www.w3.org/2007/05/powder-s#>
       construct {
-        <@IDSUBJECT@> ?p ?o.
+        <${idsubject}> ?p ?o.
         ?o rdfs:label ?olabel.
-        <@IDSUBJECT@> wdrs:isDescribedBy <@DOCSUBJECT@>
+        <${idsubject}> wdrs:isDescribedBy <${docsubject}>
       }
       where {
-        graph <@STAGE@> {
-          <@IDSUBJECT@> ?p ?o
+        graph <${stage}> {
+          <${idsubject}> ?p ?o
           OPTIONAL {
             ?o rdfs:label ?olabel
-            FILTER (lang(?olabel)="@LANGUAGE@" or lang(?olabel)="")
+            FILTER (lang(?olabel)="${language}" or lang(?olabel)="")
           }
         }
       }

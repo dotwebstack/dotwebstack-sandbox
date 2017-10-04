@@ -1,18 +1,17 @@
-graph stage:TestTheatre {
+graph config:TestTheatre {
   
-stage:IP_Search a elmo:InformationProduct;  
-  elmo:query '''
-		select ?type ?s ?s_label ("@TERM@" as ?search)
-		where {
-			graph <@STAGE@> {
-				?s rdfs:label ?s_label.
-				OPTIONAL {?s rdf:type ?type}
-				FILTER regex(?s_label,"@TERM@","i")
-			}
-		}
-	''';
-.
+  config:IP_Search a elmo:InformationProduct;  
+    elmo:query '''
+      select ?type ?s ?s_label ("${term}" as ?search)
+      where {
+        graph <${stage}> {
+          ?s rdfs:label ?s_label.
+          OPTIONAL {?s rdf:type ?type}
+          FILTER regex(?s_label,"${term}","i")
+        }
+      }
+    ''';
+  .
 
-  
-  }
+}
   

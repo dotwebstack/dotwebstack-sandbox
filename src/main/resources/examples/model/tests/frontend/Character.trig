@@ -1,13 +1,14 @@
-graph stage:TestStage {
-  stage:CharacterResource a elmo:Representation;
+graph config:TestStage {
+  
+  config:CharacterResource a elmo:Representation;
     elmo:appliesTo [rdf:type lotro:Wizard];
     elmo:index "1";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
-    elmo:contains stage:TableCharacterResource;
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:TableCharacterResource;
   .
   
-  stage:TableCharacterResource a elmo:Representation;
-    elmo:informationProduct stage:IP_CharacterResource;
+  config:TableCharacterResource a elmo:Representation;
+    elmo:informationProduct config:IP_CharacterResource;
   .
 }

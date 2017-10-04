@@ -1,10 +1,11 @@
-graph stage:TestStage {
-  stage:Webpage a elmo:Representation;
+graph config:TestStage {
+  
+  config:Webpage a elmo:Representation;
     elmo:url-pattern "/webpage$";
     elmo:appearance elmo:VocabularyAppearance;
     elmo:index "1";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
     elmo:webpage "http://www.w3.org/2000/01/rdf-schema";
   .
 }

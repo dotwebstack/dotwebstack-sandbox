@@ -1,5 +1,5 @@
-graph stage:TestTheatre {
-  stage:IP_ArchiComponents a elmo:InformationProduct;
+graph config:TestTheatre {
+  config:IP_ArchiComponents a elmo:InformationProduct;
     
     elmo:query '''
       prefix archi: <http://bp4mc2.org/def/archi#>

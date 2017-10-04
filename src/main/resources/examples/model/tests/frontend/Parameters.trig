@@ -1,17 +1,17 @@
-graph stage:TestStage {
+graph config:TestStage {
 
-stage:Parameters a elmo:Representation;
-	elmo:uri-pattern "^http://localhost:8080/ldt/(id|doc)/parameters$";
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
-	elmo:contains stage:Parameters_index;
-	elmo:index "2";
-	elmo:informationProduct stage:IP_Parameters
-.	
+  config:Parameters a elmo:Representation;
+    elmo:uri-pattern "/ldt/(id|doc)/parameters$";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:Parameters_index;
+    elmo:index "2";
+    elmo:informationProduct config:IP_Parameters
+  .  
 
-stage:Parameters_index a elmo:Part;
-	elmo:index "1";
-	elmo:appearance elmo:IndexAppearance;
-	elmo:informationProduct stage:IP_Parameters_index
-.
+  config:Parameters_index a elmo:Part;
+    elmo:index "1";
+    elmo:appearance elmo:IndexAppearance;
+    elmo:informationProduct config:IP_Parameters_index
+  .
 }

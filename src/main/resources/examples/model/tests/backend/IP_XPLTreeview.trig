@@ -1,6 +1,6 @@
-graph stage:TestTheatre {
+graph config:TestTheatre {
   
-  stage:IP_XPLTreeview a elmo:InformationProduct;
+  config:IP_XPLTreeview a elmo:InformationProduct;
     
     elmo:query '''
       prefix container: <http://localhost:8080/container/>

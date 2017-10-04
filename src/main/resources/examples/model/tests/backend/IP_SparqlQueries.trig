@@ -1,14 +1,14 @@
-graph stage:TestTheatre {
+graph config:TestTheatre {
 
-stage:IP_SparqlQueries a elmo:InformationProduct;
+  config:IP_SparqlQueries a elmo:InformationProduct;
 
-	elmo:query '''
-		select distinct ?graph
-		where {
-			graph ?graph {
-				?s ?p ?o
-			}
-		}
-	''';
-.
+    elmo:query '''
+      select distinct ?graph
+      where {
+        graph ?graph {
+          ?s ?p ?o
+        }
+      }
+    ''';
+  .
 }

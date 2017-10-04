@@ -1,9 +1,9 @@
-graph stage:TestStage {
+graph config:TestStage {
 stage:Service a elmo:Representation;
 	elmo:url-pattern "/service$";
 	elmo:index "1";
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
+	elmo:contains config:HeaderAppearance;
+	elmo:contains config:NavbarSearchAppearance;
 	elmo:service "http://localhost:8080/query/ContentAppearance?format=json";
 .
 
@@ -15,8 +15,8 @@ stage:Buienradar a elmo:Representation;
 		elmo:applies-to elmo:Appearance;
 		html:link "/query/buienradar2";
 	];
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
+	elmo:contains config:HeaderAppearance;
+	elmo:contains config:NavbarSearchAppearance;
 	elmo:service "http://xml.buienradar.nl";
 	elmo:accept "application/xml";
 	elmo:translator elmo:BuienradarTranslator;
@@ -27,8 +27,8 @@ stage:Buienradar2 a elmo:Representation;
 	elmo:appearance elmo:ChartAppearance;
 	elmo:index "1";
 	elmo:queryForm elmo:GeoForm;
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
+	elmo:contains config:HeaderAppearance;
+	elmo:contains config:NavbarSearchAppearance;
 	elmo:service "http://gpsgadget.buienradar.nl/data/raintext?lat=@LAT@&lon=@LONG@";
 	elmo:accept "text/plain";
 	elmo:translator elmo:BuienradarTranslator;
@@ -38,15 +38,15 @@ stage:BuienradarVirtualSparql a elmo:Representation;
 	elmo:url-pattern "/sparql-buienradar$";
 	elmo:appearance elmo:GeoAppearance;
 	elmo:index "1";
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
-	elmo:informationProduct stage:IP_BuienradarVirtualSparql
+	elmo:contains config:HeaderAppearance;
+	elmo:contains config:NavbarSearchAppearance;
+	elmo:informationProduct config:IP_BuienradarVirtualSparql
 .
 stage:Wow a elmo:Representation;
 	elmo:appearance elmo:GeoAppearance;
 	elmo:url-pattern "/wow$";
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
+	elmo:contains config:HeaderAppearance;
+	elmo:contains config:NavbarSearchAppearance;
 	elmo:service "https://wow.knmi.nl/sites?location=&bbox=52+5,53+6&layer=temperature&filter=&date=2017-01-15T16%3A10%3A00";
 	elmo:accept "application/json";
 	elmo:translator elmo:WowTranslator;
@@ -54,37 +54,37 @@ stage:Wow a elmo:Representation;
 
 stage:Musicbrainz a elmo:Representation;
 	elmo:appearance elmo:GraphAppearance;
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
+	elmo:contains config:HeaderAppearance;
+	elmo:contains config:NavbarSearchAppearance;
 	elmo:uri-pattern "^http://musicbrainz.org/ws/2/artist";
-	elmo:service "@SUBJECT@?inc=artist-rels";
+	elmo:service "${SUBJECT}?inc=artist-rels";
 	elmo:accept "application/xml";
 	elmo:translator elmo:MusicbrainzTranslator;
 .
 
 stage:BAGWFSVirtualSparql a elmo:Representation;
 	elmo:url-pattern "/sparql-bagwfs$";
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
+	elmo:contains config:HeaderAppearance;
+	elmo:contains config:NavbarSearchAppearance;
 	elmo:fragment [
 		elmo:applies-to "adres";
 		elmo:appearance elmo:GlobalLink;
 	];
-	elmo:informationProduct stage:IP_BAGWFSVirtualSparql
+	elmo:informationProduct config:IP_BAGWFSVirtualSparql
 .
 
 
 stage:IndexService a elmo:Representation;
 	elmo:url-pattern "/indexservice";
 	elmo:index "1";
-	elmo:contains stage:HeaderAppearance;
-	elmo:contains stage:NavbarSearchAppearance;
+	elmo:contains config:HeaderAppearance;
+	elmo:contains config:NavbarSearchAppearance;
 	elmo:service "http://localhost:8080/query/ContentAppearance?format=json";
 	elmo:fragment [
 		elmo:name "item";
 		elmo:path "graph[id='http://dbpedia.org/resource/Amersfoort']/id";
 	];	
-	elmo:informationProduct stage:IP_IndexService
+	elmo:informationProduct config:IP_IndexService
 .	
 	
 }	

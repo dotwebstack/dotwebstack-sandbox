@@ -5,13 +5,13 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-@prefix stage: <http://localhost:8080/stage#>.
+@prefix config: <http://localhost:8080/stage#>.
 @prefix lotro: <http://localhost:8080/def/lotr#>.
 
 # SparqlBackend
 
-graph stage:TestTheatre {  
-  stage:MyLocalSparqlBackend a elmo:SparqlBackend;
+graph config:TestTheatre {  
+  config:MyLocalSparqlBackend a elmo:SparqlBackend;
     elmo:endpoint "http://localhost:8890/sparql"^^xsd:anyURI;
   .
 }

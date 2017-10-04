@@ -1,80 +1,80 @@
-graph stage:TestStage {
+graph config:TestStage {
 
   # --------------------------------------------------------------------------------------------------------------------------------------  VocabularyAppearance -------------------------------------------------
 
-  stage:VocabularyAppearance	a	elmo:Representation;
+  config:VocabularyAppearance	a	elmo:Representation;
     elmo:url-pattern	"/lotr(\\.(xml|ttl|json))?$";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
-    elmo:contains stage:VocabularyAppearanceQuery
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:VocabularyAppearanceQuery
   .
   
-  stage:VocabularyAppearanceQuery a elmo:Representation;
+  config:VocabularyAppearanceQuery a elmo:Representation;
     elmo:appearance elmo:VocabularyAppearance;
-    elmo:informationProduct stage:IP_VocabularyQuery
+    elmo:informationProduct config:IP_VocabularyQuery
   .
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedVocabulary -------------------------------------------------
 
-  stage:UploadedVocabulary a elmo:Representation;
+  config:UploadedVocabulary a elmo:Representation;
     elmo:url-pattern "/uploaded-vocabulary$";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
-    elmo:contains stage:UploadedVocabularyQuery
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:UploadedVocabularyQuery
   .
   
-  stage:UploadedVocabularyQuery a elmo:Representation;
+  config:UploadedVocabularyQuery a elmo:Representation;
     elmo:appearance elmo:VocabularyAppearance;
-    elmo:informationProduct stage:IP_UploadedVocabulary
+    elmo:informationProduct config:IP_UploadedVocabulary
   .
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedModelAppearance -------------------------------------------------
 
-  stage:UploadedModelAppearance a elmo:Representation;
+  config:UploadedModelAppearance a elmo:Representation;
     elmo:url-pattern "/uploaded-model";
     elmo:index "1";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
-    elmo:contains stage:UploadedModelAppearanceQuery
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:UploadedModelAppearanceQuery
   .
   
-  stage:UploadedModelAppearanceQuery a elmo:Representation;
+  config:UploadedModelAppearanceQuery a elmo:Representation;
     elmo:appearance elmo:ModelAppearance;
-    elmo:informationProduct stage:IP_UploadedModelAppearance
+    elmo:informationProduct config:IP_UploadedModelAppearance
   .
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedShapes -------------------------------------------------
 
-  stage:UploadedShapes a elmo:Representation;
+  config:UploadedShapes a elmo:Representation;
     elmo:url-pattern "/uploaded-shapes$";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
-    elmo:contains stage:UploadedShapesQuery
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:UploadedShapesQuery
   .
   
-  stage:UploadedShapesQuery a elmo:Representation;
+  config:UploadedShapesQuery a elmo:Representation;
     elmo:appearance elmo:VocabularyAppearance;
-    elmo:informationProduct stage:IP_UploadedShapesQuery
+    elmo:informationProduct config:IP_UploadedShapesQuery
   .
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedShapesModel -------------------------------------------------
 
-  stage:UploadedShapesModel a elmo:Representation;
+  config:UploadedShapesModel a elmo:Representation;
     elmo:url-pattern "/uploaded-shapes-model";
     elmo:index "1";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
-    elmo:contains stage:UploadedShapesModelQuery
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:UploadedShapesModelQuery
   .
   
-  stage:UploadedShapesModelQuery a elmo:Representation;
+  config:UploadedShapesModelQuery a elmo:Representation;
     elmo:appearance elmo:ModelAppearance;	
-    elmo:informationProduct stage:IP_UploadedShapesQuery
+    elmo:informationProduct config:IP_UploadedShapesQuery
   .
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedShapesAppearanceYed -------------------------------------------------
 
-  stage:UploadedShapesAppearanceYed a elmo:Representation;
+  config:UploadedShapesAppearanceYed a elmo:Representation;
     elmo:url-pattern	"/uploaded-shapes\\.yed$";
     elmo:layer elmo:TopLayer;
     elmo:fragment [
@@ -83,12 +83,12 @@ graph stage:TestStage {
       yed:sourceArrow "none";
       yed:targetArrow "white_delta";
     ];
-    elmo:informationProduct stage:IP_UploadedShapesAppearanceYed
+    elmo:informationProduct config:IP_UploadedShapesAppearanceYed
   .
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedVocabularyAppearanceYed -------------------------------------------------	
 
-  stage:UploadedVocabularyAppearanceYed a elmo:Representation;
+  config:UploadedVocabularyAppearanceYed a elmo:Representation;
     elmo:url-pattern	"/uploaded-vocabulary\\.yed$";
     elmo:layer elmo:TopLayer;
     elmo:fragment [
@@ -97,12 +97,12 @@ graph stage:TestStage {
       yed:sourceArrow "none";
       yed:targetArrow "white_delta";
     ];
-    elmo:informationProduct stage:IP_UploadedVocabularyAppearanceYed
+    elmo:informationProduct config:IP_UploadedVocabularyAppearanceYed
   .
 
   # --------------------------------------------------------------------------------------------------------------------------------------  VocabularyAppearanceYed -------------------------------------------------
 
-  stage:VocabularyAppearanceYed a elmo:Representation;
+  config:VocabularyAppearanceYed a elmo:Representation;
     elmo:url-pattern	"/lotr\\.yed?$";
     elmo:layer elmo:TopLayer;
     elmo:fragment [
@@ -111,6 +111,6 @@ graph stage:TestStage {
       yed:sourceArrow "none";
       yed:targetArrow "white_delta";
     ];
-    elmo:informationProduct stage:IP_VocabularyAppearanceYed
+    elmo:informationProduct config:IP_VocabularyAppearanceYed
   .
 }

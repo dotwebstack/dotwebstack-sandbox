@@ -1,20 +1,21 @@
-graph stage:TestStage {
-  stage:BlankNodes a elmo:Representation;
+graph config:TestStage {
+  
+  config:BlankNodes a elmo:Representation;
     elmo:urlPattern "/blank-nodes$";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
-    elmo:contains stage:BlankNodes_content;
-    elmo:contains stage:BlankNodes_tab;
-    elmo:contains stage:BlankNodes_data;
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:BlankNodes_content;
+    elmo:contains config:BlankNodes_tab;
+    elmo:contains config:BlankNodes_data;
   .
 
-  stage:BlankNodes_data a elmo:Representation;
+  config:BlankNodes_data a elmo:Representation;
     elmo:index "0";
   #  elmo:appearance elmo:HiddenAppearance;
-    elmo:informationProduct stage:IP_BlankNodes_data
+    elmo:informationProduct config:IP_BlankNodes_data
   .
 
-  stage:BlankNodes_tab a elmo:Representation;
+  config:BlankNodes_tab a elmo:Representation;
     elmo:index "1";
     elmo:appearance elmo:IndexAppearance;
     elmo:data [
@@ -24,8 +25,8 @@ graph stage:TestStage {
     ];
   .
 
-  stage:BlankNodes_content a elmo:Representation;
+  config:BlankNodes_content a elmo:Representation;
     elmo:index "2";
-    elmo:informationProduct stage:IP_BlankNodes_content
+    elmo:informationProduct config:IP_BlankNodes_content
   .
 }

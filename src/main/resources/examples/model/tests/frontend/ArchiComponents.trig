@@ -1,12 +1,13 @@
-graph stage:TestStage {
-  stage:ArchiComponents a elmo:Representation;
+graph config:TestStage {
+  
+  config:ArchiComponents a elmo:Representation;
     elmo:urlPattern "/archi-components";
-    elmo:contains stage:HeaderAppearance;
-    elmo:contains stage:NavbarSearchAppearance;
-    elmo:contains stage:TableArchiComponents;
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:TableArchiComponents;
   .
   
-  stage:TableArchiComponents a elmo:Representation;
+  config:TableArchiComponents a elmo:Representation;
     elmo:fragment [
       elmo:appliesTo "type";
       rdfs:label "Type";
@@ -20,6 +21,6 @@ graph stage:TestStage {
       elmo:appliesTo "rel";
       rdfs:label "Realized by";
     ];
-    elmo:informationProduct stage:IP_ArchiComponents
+    elmo:informationProduct config:IP_ArchiComponents
   .
 }

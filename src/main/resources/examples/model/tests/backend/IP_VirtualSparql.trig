@@ -1,5 +1,6 @@
-graph stage:TestTheatre {	
-  stage:IP_VirtualSparql_resource a elmo:InformationProduct ;
+graph config:TestTheatre {	
+
+  config:IP_VirtualSparql_resource a elmo:InformationProduct ;
      
     elmo:query '''
       construct {
@@ -15,7 +16,7 @@ graph stage:TestTheatre {
     '''
   .
 
-  stage:IP_VirtualSparql_dataset  a elmo:InformationProduct ;
+  config:IP_VirtualSparql_dataset  a elmo:InformationProduct ;
        
     elmo:query '''
       select *
@@ -30,7 +31,7 @@ graph stage:TestTheatre {
     '''
   .
 
-  stage:IP_VirtualSparql_resource2  a elmo:InformationProduct ;
+  config:IP_VirtualSparql_resource2  a elmo:InformationProduct ;
        
     elmo:query '''
       construct {
@@ -40,7 +41,7 @@ graph stage:TestTheatre {
         service <http://localhost:8080/url> {
           <http://dbpedia.org/resource/Amersfoort> ?p ?o.
           FILTER (?p = rdfs:label || ?p = rdfs:comment)
-          FILTER (lang(?o)="" or lang(?o)="@LANGUAGE@")
+          FILTER (lang(?o)="" or lang(?o)="${language}")
         }
       }
     '''

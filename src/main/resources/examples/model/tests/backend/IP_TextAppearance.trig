@@ -1,120 +1,120 @@
-graph stage:TestTheatre {
+graph config:TestTheatre {
 
 # ------------------------------------------------------------------------------------------TextAppearance
 
-stage:IP_TextAppearance a elmo:InformationProduct;
+  config:IP_TextAppearance a elmo:InformationProduct;
 
-elmo:query '''
-		prefix geosparql: <http://www.opengis.net/ont/geosparql#>
-		prefix xhtml: <http://www.w3.org/1999/xhtml/vocab#>
-		construct {
-			<http://localhost:8080/id/fragment/doc1> dc:title ?doctitle.
-			?container xhtml:subsection ?fragment.
-			?fragment rdf:type ?type.
-			?fragment dc:title ?title.
-			?fragment rdf:value ?block.
-			?fragment geosparql:sfContains ?feature.
-			?feature rdf:value ?wkt.
-			?feature xhtml:stylesheet ?stylesheet.
-			?head rdf:rest ?tail.
-			?head rdf:first ?content.
-			?content dc:title ?ctitle.
-		}
-		where {
-			<http://localhost:8080/id/fragment/doc1> dc:title ?doctitle.
-			<http://localhost:8080/id/fragment/doc1> xhtml:subsection* ?container.
-			?container xhtml:subsection ?fragment.
-			?fragment rdf:type ?type.
-			OPTIONAL {?fragment dc:title ?title}
-			OPTIONAL {
-				?fragment rdf:value ?block.
-				OPTIONAL {
-					?block rdf:rest* ?head.
-					?head rdf:first ?content.
-					?head rdf:rest ?tail.
-					OPTIONAL {?content dc:title ?ctitle}
-				}
-			}
-			OPTIONAL {
-				?fragment geosparql:sfContains* ?feature.
-				?feature geosparql:hasGeometry ?geo.
-				?geo geosparql:asWKT ?wkt.
-				OPTIONAL {?feature xhtml:stylesheet ?stylesheet}
-			}
-		}
-	''';
-.
+  elmo:query '''
+      prefix geosparql: <http://www.opengis.net/ont/geosparql#>
+      prefix xhtml: <http://www.w3.org/1999/xhtml/vocab#>
+      construct {
+        <http://localhost:8080/id/fragment/doc1> dc:title ?doctitle.
+        ?container xhtml:subsection ?fragment.
+        ?fragment rdf:type ?type.
+        ?fragment dc:title ?title.
+        ?fragment rdf:value ?block.
+        ?fragment geosparql:sfContains ?feature.
+        ?feature rdf:value ?wkt.
+        ?feature xhtml:stylesheet ?stylesheet.
+        ?head rdf:rest ?tail.
+        ?head rdf:first ?content.
+        ?content dc:title ?ctitle.
+      }
+      where {
+        <http://localhost:8080/id/fragment/doc1> dc:title ?doctitle.
+        <http://localhost:8080/id/fragment/doc1> xhtml:subsection* ?container.
+        ?container xhtml:subsection ?fragment.
+        ?fragment rdf:type ?type.
+        OPTIONAL {?fragment dc:title ?title}
+        OPTIONAL {
+          ?fragment rdf:value ?block.
+          OPTIONAL {
+            ?block rdf:rest* ?head.
+            ?head rdf:first ?content.
+            ?head rdf:rest ?tail.
+            OPTIONAL {?content dc:title ?ctitle}
+          }
+        }
+        OPTIONAL {
+          ?fragment geosparql:sfContains* ?feature.
+          ?feature geosparql:hasGeometry ?geo.
+          ?geo geosparql:asWKT ?wkt.
+          OPTIONAL {?feature xhtml:stylesheet ?stylesheet}
+        }
+      }
+    ''';
+  .
 
-#-----------------------------------------------------------------------------------------SectionTextAppearance	
+#-----------------------------------------------------------------------------------------SectionTextAppearance  
 
-stage:IP_SectionTextAppearance a elmo:InformationProduct;
+  config:IP_SectionTextAppearance a elmo:InformationProduct;
 
-elmo:query '''
-		prefix geosparql: <http://www.opengis.net/ont/geosparql#>
-		prefix xhtml: <http://www.w3.org/1999/xhtml/vocab#>
-		construct {
-			<@SUBJECT@> dc:title ?doctitle.
-			?container xhtml:subsection ?fragment.
-			?fragment rdf:type ?type.
-			?fragment dc:title ?title.
-			?fragment rdf:value ?block.
-			?fragment geosparql:sfContains ?feature.
-			?feature rdf:value ?wkt.
-			?feature xhtml:stylesheet ?stylesheet.
-			?feature dc:title ?ftitle.
-			?head rdf:rest ?tail.
-			?head rdf:first ?content.
-			?content dc:title ?ctitle.
-		}
-		where {
-			<@SUBJECT@> dc:title ?doctitle.
-			<@SUBJECT@> xhtml:subsection* ?container.
-			?container xhtml:subsection ?fragment.
-			?fragment rdf:type ?type.
-			OPTIONAL {?fragment dc:title ?title}
-			OPTIONAL {
-				?fragment rdf:value ?block.
-				OPTIONAL {
-					?block rdf:rest* ?head.
-					?head rdf:first ?content.
-					?head rdf:rest ?tail.
-					OPTIONAL {?content dc:title ?ctitle}
-				}
-			}
-			OPTIONAL {
-				?fragment geosparql:sfContains* ?feature.
-				?feature geosparql:hasGeometry ?geo.
-				?geo geosparql:asWKT ?wkt.
-				OPTIONAL {?feature xhtml:stylesheet ?stylesheet}
-				OPTIONAL {?feature dc:title ?ftitle}
-			}
-		}
-	''';
-.
+  elmo:query '''
+      prefix geosparql: <http://www.opengis.net/ont/geosparql#>
+      prefix xhtml: <http://www.w3.org/1999/xhtml/vocab#>
+      construct {
+        <${subject}> dc:title ?doctitle.
+        ?container xhtml:subsection ?fragment.
+        ?fragment rdf:type ?type.
+        ?fragment dc:title ?title.
+        ?fragment rdf:value ?block.
+        ?fragment geosparql:sfContains ?feature.
+        ?feature rdf:value ?wkt.
+        ?feature xhtml:stylesheet ?stylesheet.
+        ?feature dc:title ?ftitle.
+        ?head rdf:rest ?tail.
+        ?head rdf:first ?content.
+        ?content dc:title ?ctitle.
+      }
+      where {
+        <${subject}> dc:title ?doctitle.
+        <${subject}> xhtml:subsection* ?container.
+        ?container xhtml:subsection ?fragment.
+        ?fragment rdf:type ?type.
+        OPTIONAL {?fragment dc:title ?title}
+        OPTIONAL {
+          ?fragment rdf:value ?block.
+          OPTIONAL {
+            ?block rdf:rest* ?head.
+            ?head rdf:first ?content.
+            ?head rdf:rest ?tail.
+            OPTIONAL {?content dc:title ?ctitle}
+          }
+        }
+        OPTIONAL {
+          ?fragment geosparql:sfContains* ?feature.
+          ?feature geosparql:hasGeometry ?geo.
+          ?geo geosparql:asWKT ?wkt.
+          OPTIONAL {?feature xhtml:stylesheet ?stylesheet}
+          OPTIONAL {?feature dc:title ?ftitle}
+        }
+      }
+    ''';
+  .
 
-#-----------------------------------------------------------------------------------------SectionTextAppearanceTree	
+#-----------------------------------------------------------------------------------------SectionTextAppearanceTree  
 
-stage:IP_SectionTextAppearanceTree a elmo:InformationProduct;
+  config:IP_SectionTextAppearanceTree a elmo:InformationProduct;
 
 
-	elmo:query '''
-		prefix xhtml: <http://www.w3.org/1999/xhtml/vocab#>
-		construct {
-			?fragment xhtml:section ?container.
-			?container rdfs:label ?clabel.
-			?fragment rdfs:label ?flabel.
-		}
-		where {
-			{
-				{<@SUBJECT@> xhtml:subsection* ?container}
-				UNION
-				{?container xhtml:subsection* <@SUBJECT@>}
-			}
-			?container xhtml:subsection ?fragment.
-			?container dc:title ?clabel.
-			?fragment dc:title ?flabel.
-		}
-	''';
-.
+    elmo:query '''
+      prefix xhtml: <http://www.w3.org/1999/xhtml/vocab#>
+      construct {
+        ?fragment xhtml:section ?container.
+        ?container rdfs:label ?clabel.
+        ?fragment rdfs:label ?flabel.
+      }
+      where {
+        {
+          {<${subject}> xhtml:subsection* ?container}
+          UNION
+          {?container xhtml:subsection* <${subject}>}
+        }
+        ?container xhtml:subsection ?fragment.
+        ?container dc:title ?clabel.
+        ?fragment dc:title ?flabel.
+      }
+    ''';
+  .
 
 }

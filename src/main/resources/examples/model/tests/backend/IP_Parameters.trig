@@ -1,39 +1,32 @@
-graph stage:TestTheatre {
+graph config:TestTheatre {
 
-stage:IP_Parameters a elmo:InformationProduct;
+  config:IP_Parameters a elmo:InformationProduct;
 
-elmo:query '''
-		prefix para: <http://localhost:8080/def/parameters#>
-		construct {
-			<${docsubject}> para:Subject "${subject}".
-			<${docsubject}> para:DocumentSubject "${docsubject}".
-			<${docsubject}> para:Language "${laguage}".
-			<${docsubject}> para:User "${user}".
-			<${docsubject}> para:CurrentMoment "${currentmoment}".
-			<${docsubject}> para:Stage "${stage}".
-			<${docsubject}> para:Timestamp "${timestamp}".
-			<${docsubject}> para:Date "${date}".
-			<${docsubject}> para:Para1 "${para1}".
-		}
-		where {}
-	''';
-	
-	
-.
+    elmo:query '''
+        prefix para: <http://localhost:8080/def/parameters#>
+        construct {
+          <${docsubject}> para:Subject "${subject}".
+          <${docsubject}> para:DocumentSubject "${docsubject}".
+          <${docsubject}> para:Language "${laguage}".
+          <${docsubject}> para:User "${user}".
+          <${docsubject}> para:CurrentMoment "${currentmoment}".
+          <${docsubject}> para:Stage "${stage}".
+          <${docsubject}> para:Timestamp "${timestamp}".
+          <${docsubject}> para:Date "${date}".
+          <${docsubject}> para:Para1 "${para1}".
+        }
+        where {}
+      ''';
+  .
 
+  config:IP_Parameters_index a elmo:InformationProduct;
 
-
-
-stage:IP_Parameters_index a elmo:InformationProduct;
-
-elmo:query '''
-		prefix html: <http://www.w3.org/1999/xhtml/vocab#>
-		select	(<http://localhost:8080/ldt/id/parameters?> as ?direct)
-				(<http://localhost:8080/ldt/resource?subject=http://localhost:8080/id/parameters> as ?dereferenced)
-				(<http://localhost:8080/ldt/resource?subject=http://localhost:8080/doc/parameters> as ?document)
-		where {}
-	''';
-.
-
-
+    elmo:query '''
+        prefix html: <http://www.w3.org/1999/xhtml/vocab#>
+        select	(<http://localhost:8080/ldt/id/parameters?> as ?direct)
+            (<http://localhost:8080/ldt/resource?subject=http://localhost:8080/id/parameters> as ?dereferenced)
+            (<http://localhost:8080/ldt/resource?subject=http://localhost:8080/doc/parameters> as ?document)
+        where {}
+      ''';
+  .
 }

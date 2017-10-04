@@ -1,6 +1,6 @@
 
-graph stage:TestTheatre {
-  stage:IP_BlankNodes_data a elmo:InformationProduct;
+graph config:TestTheatre {
+  config:IP_BlankNodes_data a elmo:InformationProduct;
     
     elmo:query '''
       prefix testo: <http://localhost:8080/def/test#>
@@ -12,7 +12,7 @@ graph stage:TestTheatre {
         ?head rdf:first ?city.
       }
       where {
-        graph <@STAGE@> {
+        graph <${stage}> {
           ?s rdfs:label ?label.
           ?s testo:largestCities ?list.
           ?list rdf:rest* ?head.
@@ -24,7 +24,7 @@ graph stage:TestTheatre {
     ''';
   .
 
-  stage:IP_BlankNodes_content a elmo:InformationProduct;
+  config:IP_BlankNodes_content a elmo:InformationProduct;
     
     elmo:query '''
       prefix testo: <http://localhost:8080/def/test#>

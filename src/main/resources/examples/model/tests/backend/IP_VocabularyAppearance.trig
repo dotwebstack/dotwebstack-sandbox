@@ -1,7 +1,7 @@
 
-graph stage:TestTheatre {
+graph config:TestTheatre {
   # --------------------------------------------------------------------------------------------------------------------------------------  VocabularyQuery -------------------------------------------------
-  stage:IP_VocabularyQuery a elmo:InformationProduct;
+  config:IP_VocabularyQuery a elmo:InformationProduct;
     
     elmo:query '''
       prefix dcterms: <http://purl.org/dc/terms/>
@@ -46,7 +46,7 @@ graph stage:TestTheatre {
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedVocabulary -------------------------------------------------
 
-  stage:IP_UploadedVocabulary a elmo:InformationProduct;
+  config:IP_UploadedVocabulary a elmo:InformationProduct;
     
     elmo:query '''
       construct {?s?p?o}
@@ -60,7 +60,7 @@ graph stage:TestTheatre {
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedModelAppearance -------------------------------------------------
 
-  stage:IP_UploadedModelAppearance a elmo:InformationProduct;
+  config:IP_UploadedModelAppearance a elmo:InformationProduct;
     
     elmo:query '''
       construct {?s?p?o}
@@ -74,7 +74,7 @@ graph stage:TestTheatre {
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedShapesQuery -------------------------------------------------
 
-  stage:IP_UploadedShapesQuery a elmo:InformationProduct;
+  config:IP_UploadedShapesQuery a elmo:InformationProduct;
     
     elmo:query '''
       prefix shacl: <http://www.w3.org/ns/shacl#>
@@ -119,7 +119,7 @@ graph stage:TestTheatre {
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedShapesAppearanceYed -------------------------------------------------
 
-  stage:IP_UploadedShapesAppearanceYed a elmo:InformationProduct;
+  config:IP_UploadedShapesAppearanceYed a elmo:InformationProduct;
     
     elmo:query '''
       prefix shacl: <http://www.w3.org/ns/shacl#>
@@ -169,7 +169,7 @@ graph stage:TestTheatre {
 
   # --------------------------------------------------------------------------------------------------------------------------------------  UploadedVocabularyAppearanceYed -------------------------------------------------
 
-  stage:IP_UploadedVocabularyAppearanceYed a elmo:InformationProduct;
+  config:IP_UploadedVocabularyAppearanceYed a elmo:InformationProduct;
     
     elmo:query '''
       prefix shacl: <http://www.w3.org/ns/shacl#>
@@ -224,7 +224,7 @@ graph stage:TestTheatre {
 
   # --------------------------------------------------------------------------------------------------------------------------------------  VocabularyAppearanceYed -------------------------------------------------
 
-  stage:IP_VocabularyAppearanceYed a elmo:InformationProduct;
+  config:IP_VocabularyAppearanceYed a elmo:InformationProduct;
     
     elmo:query '''
       prefix shacl: <http://www.w3.org/ns/shacl#>
