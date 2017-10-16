@@ -15,3 +15,22 @@ paths:
           description: OK
           schema:
             type: array
+            items:
+              type: object
+              required:
+                - pand
+                - oorspronkelijkBouwjaar
+                - beginGeldigheid
+              properties:
+                pand:
+                  type: string
+                  format: uri
+                oorspronkelijkBouwjaar:
+                  type: integer
+                  format: int32
+                beginGeldigheid:
+                  type: string
+                  format: datetime
+                eindGeldigheid:
+                  type: string
+                  format: datetime
