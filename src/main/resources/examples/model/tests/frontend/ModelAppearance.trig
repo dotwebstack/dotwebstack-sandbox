@@ -1,0 +1,12 @@
+graph config:TestStage {
+
+  config:ModelAppearance a elmo:Representation;
+    elmo:url-pattern "/modelappearance";
+    elmo:index "1";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:appearance elmo:ModelAppearance;
+    
+  elmo:informationProduct config:IP_ModelAppearance
+.  
+}

@@ -1,0 +1,22 @@
+graph config:TestTheatre {
+
+  config:IP_DummyProduction_yesno a elmo:InformationProduct;
+    elmo:query '''
+      construct {
+        <urn:yes> rdfs:label "yes".
+        <urn:no> rdfs:label "no".
+      }
+      where {}
+    ''';
+  .
+
+  config:IP_ShowDummyGraph a elmo:InformationProduct;	
+    elmo:query '''
+      select ?subject ?predicate ?object
+      where {
+        graph <http://localhost:8080/id/dataset/dummy> {?subject ?predicate ?object}
+      }
+    ''';
+  .
+
+}

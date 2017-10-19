@@ -1,0 +1,237 @@
+swagger: 2.0
+info:
+  title: Tests API
+  version: 1.0
+host: localhost
+basePath: /tests/api/v1
+produces:
+  - text/plain
+paths:
+
+#-------------------------------------------------------------------------------------------------------    ArchiComponents    --------------------------------------------------------------------  
+
+  /query/archicomponents:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ArchiComponents"
+      responses:
+        200:
+          description: OK
+          
+#-------------------------------------------------------------------------------------------------------    BlankNodes_content    --------------------------------------------------------------------  
+          
+  /query/BlankNodes:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_BlankNodes_content"
+      responses:
+        200:
+          description: OK 
+          
+#-------------------------------------------------------------------------------------------------------    Character --------------------------------------------------------------------            
+
+  /character:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_CharacterResource"
+      responses:
+        200:
+          description: OK
+          
+#-------------------------------------------------------------------------------------------------------    XPLTreeview    --------------------------------------------------------------------            
+          
+  /xpl-treeview:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_XPLTreeview"
+      responses:
+        200:
+          description: OK   
+     
+#-------------------------------------------------------------------------------------------------------    VocabularyAppearance    --------------------------------------------------------------------  
+          
+  /uploaded-vocabulary:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedVocabulary"
+      responses:
+        200:
+          description: OK            
+
+  /uploaded-model:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedModel"
+      responses:
+        200:
+          description: OK     
+            
+            
+  /uploaded-shapes:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedShapes"
+      responses:
+        200:
+          description: OK           
+
+  /uploaded-shapes-model:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedShapesModel"
+      responses:
+        200:
+          description: OK  
+
+  /uploaded-shapes.yed:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedShapesAppearanceYed"
+      responses:
+        200:
+          description: OK  
+
+  /uploaded-vocabulary.yed:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_UploadedVocabularyAppearanceYed"
+      responses:
+        200:
+          description: OK  
+
+  /lotr.yed:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_VocabularyAppearanceYed"
+      responses:
+        200:
+          description: OK  
+          
+  /lotr.ttl:
+  /lotr.xml:
+  /lotr.json:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_VocabularyQuery"
+      responses:
+        200:
+          description: OK  
+
+#-------------------------------------------------------------------------------------------------------    VirtualSparql    --------------------------------------------------------------------  
+
+  /virtual-sparql$:
+    get:
+      x-dotwebstack-information-product: "http://localhost:8080/stage#IP_VirtualSparql"
+      responses:
+        200:
+          description: OK            
+  
+
+#-------------------------------------------------------------------------------------------------------    TextAppearance    --------------------------------------------------------------------    
+
+  /text-appearance$:
+  get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_TextAppearance"
+      responses:
+        200:
+          description: OK  
+#-------------------------------------------------------------------------------------------------------    TableAppearance   --------------------------------------------------------------------    
+
+  /table-appearance$:
+   get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_TableAppearanceQuery2"
+      responses:
+        200:
+          description: OK  
+
+#-------------------------------------------------------------------------------------------------------    StylesheetTest   --------------------------------------------------------------------    
+         
+  /stylesheet-test:
+   get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Stylesheet"
+      responses:
+        200:
+          description: OK   
+ #-------------------------------------------------------------------------------------------------------    SesameFormats   --------------------------------------------------------------------    
+    
+  /sesame-selectformats:
+    get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Sesame_SelectFormats"
+      responses:
+        200:
+          description: OK   
+
+ /sesame-constructformats:
+     get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Sesame_ConstructFormats"
+      responses:
+        200:
+          description: OK  
+#-------------------------------------------------------------------------------------------------------    Service     --------------------------------------------------------------------    
+   
+  /sparql-buienradar$:
+      get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_BuienradarVirtualSparql"
+      responses:
+        200:
+          description: OK  
+
+/sparql-bagwfs$:
+  get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_BAGWFSVirtualSparql"
+      responses:
+        200:
+          description: OK  
+  
+
+/indexservice:
+  get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_IndexService"
+      responses:
+        200:
+          description: OK  
+    
+#-------------------------------------------------------------------------------------------------------    Service-duo     --------------------------------------------------------------------    
+     
+  /service-duo$:
+    get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ServiceDuo"
+      responses:
+        200:
+          description: OK  
+  
+ #-------------------------------------------------------------------------------------------------------    Search     --------------------------------------------------------------------    
+     
+  
+  /search$:
+      get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Search"
+      responses:
+        200:
+          description: OK  
+  
+   
+ #-------------------------------------------------------------------------------------------------------    Production     --------------------------------------------------------------------    
+      
+  /showdummygraph:
+        get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ShowDummyGraph"
+      responses:
+        200:
+          description: OK  
+ 
+  #-------------------------------------------------------------------------------------------------------    ModelAppearance     --------------------------------------------------------------------    
+     
+  /modelappearance:
+          get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ModelAppearance"
+      responses:
+        200:
+          description: OK  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

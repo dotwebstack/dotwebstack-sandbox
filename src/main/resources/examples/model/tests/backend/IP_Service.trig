@@ -1,0 +1,41 @@
+graph config:TestTheatre {
+
+  config: IP_BuienradarVirtualSparql a elmo:InformationProduct
+
+    elmo:query '''
+        construct {?s?p?o}
+        where {
+          service <http://localhost:8080/url> {
+            graph <http://xml.buienradar.nl> {
+              ?s?p?o
+            }
+          }
+        }
+     ''';
+  .
+
+  config: IP_BAGWFSVirtualSparql a elmo:InformationProduct
+    elmo:query '''
+      prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+      prefix bag: <http://bag.basisregistraties.overheid.nl/def/bag#>
+      select *
+      where {
+        service <http://localhost:8080/url> {
+          <http://geodata.nationaalgeoregister.nl/bag/wfs> geo:geometry "POINT(155000 463007)".
+          graph <http://geodata.nationaalgeoregister.nl/bag/wfs> {
+            ?adres bag:adres ?adres_label
+          }
+        }
+      }
+    ''';
+  .
+
+
+  config: IP_IndexService a elmo:InformationProduct
+    elmo:query '''
+      select "${item}" as ?item
+      where {}
+    ''';
+  .
+
+}
