@@ -1,0 +1,8 @@
+graph config:TestTheatre {
+
+  config:IP_MissingAppearance a elmo:InformationProduct;
+  elmo:query '''
+    construct {?s?p?o}
+    where {}
+  '''
+}

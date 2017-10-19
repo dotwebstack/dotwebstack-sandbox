@@ -1,0 +1,14 @@
+graph config:TestTheatre {
+  
+  config:IP_MarkdownAppearance a elmo:InformationProduct;
+    elmo:query "construct {?s?p?o} where {graph <${stage}> {?s?p?o filter (?s = <http://localhost:8080/id/test/markdowntest>)}}"
+  .
+  
+  config:IP_MarkdownAppearance_select a elmo:InformationProduct;
+  	elmo:query "select distinct ?md where {graph <${stage}> {<http://localhost:8080/id/test/markdowntest> skos:definition ?md}}"
+  .
+  
+  config:IP_MarkdownAppearance_table a elmo:InformationProduct;  
+	  elmo:query "select distinct ?begrip ?label ?definition where {graph <${stage}> {?begrip rdfs:label ?label.?begrip skos:definition ?definition.filter (?begrip = <http://localhost:8080/id/test/markdowntest>)}}"
+  .
+}

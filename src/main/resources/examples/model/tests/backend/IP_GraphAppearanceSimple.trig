@@ -1,0 +1,32 @@
+graph config:TestTheatre {
+
+  config:IP_GraphAppearanceSimple a elmo:InformationProduct;
+
+  elmo:query '''
+      construct {
+        <${subject}> rdfs:label ?subjectlabel.
+
+        <${subject}> ?torelation ?toperson.
+        ?toperson rdfs:label ?topersonlabel.
+
+        ?fromperson ?fromrelation <@SUBJECT@>.
+        ?fromperson rdfs:label ?frompersonlabel.
+      }
+      where {
+        {
+          <${subject}> rdfs:label ?subjectlabel.
+        }
+        UNION
+        {
+          <${subject}> ?torelation ?toperson.
+          ?toperson rdfs:label ?topersonlabel.
+        }
+        UNION
+        {
+          ?fromperson ?fromrelation <@SUBJECT@>.
+          ?fromperson rdfs:label ?frompersonlabel.
+        }
+      }
+    ''';
+  . 
+}

@@ -1,0 +1,117 @@
+graph config:TestStage {
+
+  config:MarkdownAppearance  a  elmo:Representation;
+    elmo:url-pattern  "markdownappearance$";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:MarkdownAppearance_content;
+    elmo:contains config:MarkdownAppearance_data;
+    elmo:contains config:MarkdownAppearance_select;
+    elmo:contains config:MarkdownAppearance_table;
+  .
+
+
+
+  config:MarkdownAppearance_content a elmo:Representation;
+    elmo:index "1";
+    elmo:fragment [
+      elmo:applies-to skos:definition;
+      elmo:appearance elmo:MarkdownAppearance;
+    ];
+    elmo:informationProduct config:IP_MarkdownAppearance
+  .
+    
+    
+  config:MarkdownAppearance_data a elmo:Representation;
+    elmo:index "2";
+    elmo:appearance elmo:MarkdownAppearance;
+    
+    
+  elmo:data [
+    rdfs:label "Markdown as stand alone part";
+    elmo:md '''#Test
+      Dit is een **test** van *markdown*.
+      Deze tekst wordt er achter geplaatst (ondanks regelovergang)
+
+      En deze tekst komt op een nieuwe regel. Kijken of `code` ook werkt:
+
+      Dit gaat dus anders
+      En dit ook
+  
+     ##Nummers
+     En nummers:
+
+     1. Eén
+     2. Twee
+     3. Drie
+
+     Dotjes:
+
+     - dot 1
+     - dot 2
+     - dot 3'''
+       ]
+  
+  .
+
+
+  config:MarkdownAppearance_select a elmo:Representation;
+     elmo:index "3";
+    elmo:appearance elmo:MarkdownAppearance;
+    elmo:informationProduct config:IP_MarkdownAppearance_select
+  .
+    
+ 
+  config:MarkdownAppearance_table a elmo:Representation;
+  elmo:index "4";
+  elmo:fragment [
+    elmo:applies-to "definition";
+    elmo:appearance elmo:MarkdownAppearance;
+  ];
+  elmo:informationProduct config:IP_MarkdownAppearance_table
+  .
+    
+
+  <http://localhost:8080/id/test/markdowntest> rdf:type skos:Concept;
+    rdfs:label "Testbegrip";
+    skos:definition '''#Test
+  Dit is een **test** van *markdown*.
+  Deze tekst wordt er achter geplaatst (ondanks regelovergang)
+
+  En deze tekst komt op een nieuwe regel. Kijken of `code` ook werkt:
+
+    Dit gaat dus anders
+    En dit ook
+    
+  ##Nummers
+  En nummers:
+
+  1. Eén
+  2. Twee
+  3. Drie
+
+  Dotjes:
+
+  - dot 1
+  - dot 2
+  - dot 3'''
+  .
+    
+}  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

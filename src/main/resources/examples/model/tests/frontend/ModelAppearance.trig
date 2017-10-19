@@ -1,7 +1,7 @@
 graph config:TestStage {
 
   config:ModelAppearance a elmo:Representation;
-    elmo:url-pattern "/modelappearance";
+    elmo:url-pattern "/model-appearance";
     elmo:index "1";
     elmo:contains config:HeaderAppearance;
     elmo:contains config:NavbarSearchAppearance;

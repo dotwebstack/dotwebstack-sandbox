@@ -1,0 +1,8 @@
+graph config:TestStage {
+  config:HeaderAppearance a elmo:Representation;
+    elmo:appearance elmo:HeaderAppearance;
+    elmo:index "~";
+    elmo:without-parameter "jmetertest";
+    elmo:data	[ elmo:html "<img src='/images/ldt-logo.png'></img>"^^rdf:HTML];
+  .
+}
