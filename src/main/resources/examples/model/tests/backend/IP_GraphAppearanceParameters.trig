@@ -1,0 +1,22 @@
+graph config:TestTheatre {
+  
+  config:IP_GraphAppearanceParameters a elmo:InformationProduct;
+  elmo:query '''
+        construct {
+          <http://localhost:8080/id/testen/graph> rdfs:label "Test".
+          <http://localhost:8080/id/testen/graph> <http://localhost:8080#para> <http://localhost:8080/id/para>.
+          <http://localhost:8080/id/testen/graph> <http://localhost:8080#idsubject> <http://localhost:8080/id/idsubject>.
+          <http://localhost:8080/id/testen/graph> <http://localhost:8080#subject> <http://localhost:8080/id/subject>.
+          <http://localhost:8080/id/testen/graph> <http://localhost:8080#date> <http://localhost:8080/id/date>.
+          <http://localhost:8080/id/testen/graph> <http://localhost:8080#timestamp> <http://localhost:8080/id/timestamp>.
+          <http://localhost:8080#para> rdfs:label "PARA".
+          <http://localhost:8080/id/para> rdfs:label "${para}".
+          <http://localhost:8080/id/idsubject> rdfs:label "${idsubject}".
+          <http://localhost:8080/id/subject> rdfs:label "${subject}".
+          <http://localhost:8080/id/date> rdfs:label "${date}".
+          <http://localhost:8080/id/timestamp> rdfs:label "${timestamp}".
+        }
+        where {}
+      ''';
+
+}

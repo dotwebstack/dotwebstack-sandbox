@@ -1,0 +1,10 @@
+graph config:TestStage {
+
+  config:GraphAppearanceSimple	a	elmo:Representation;
+    elmo:url-pattern	"/query/GraphAppearanceSimple$";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:appearance elmo:GraphAppearance;
+    elmo:informationProduct config:IP_GraphAppearanceSimple
+  .
+}

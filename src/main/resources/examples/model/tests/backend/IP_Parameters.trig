@@ -7,7 +7,7 @@ graph config:TestTheatre {
         construct {
           <${docsubject}> para:Subject "${subject}".
           <${docsubject}> para:DocumentSubject "${docsubject}".
-          <${docsubject}> para:Language "${laguage}".
+          <${docsubject}> para:Language "${language}".
           <${docsubject}> para:User "${user}".
           <${docsubject}> para:CurrentMoment "${currentmoment}".
           <${docsubject}> para:Stage "${stage}".

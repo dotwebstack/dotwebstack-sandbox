@@ -80,7 +80,7 @@ graph config:TestStage {
   config:DummyProduction_scene2 a elmo:Scene;
     elmo:index "2";
     rdfs:label "Add testdata";
-    elmo:query '''insert into <http://localhost:8080/id/dataset/dummy> {<urn:test> rdfs:label "${TESTVALUE@"}''';
+    elmo:query '''insert into <http://localhost:8080/id/dataset/dummy> {<urn:test> rdfs:label "${TESTVALUE}"}''';
   .
 
   config:ShowDummyGraph a elmo:Representation;
