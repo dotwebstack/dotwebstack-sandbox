@@ -1,0 +1,28 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix:stage <http://localhost:8080/stage#>.
+
+stage:search a elmo:Representation;
+  elmo:url-pattern "/query/search$";
+  elmo:queryForm stage:searchForm;
+  elmo:informationProduct stage:ip-search;
+  elmo:informationProduct stage:ip-searchAdvanced;
+  elmo:informationProdcut stage:ip-searchClasses;
+.
+stage:searchForm a elmo:Form;
+  elmo:fragment [
+    elmo:applies-to "class";
+	elmo:valuesFrom stage:ip-searchClasses;
+	elmo:index "1";
+	];
+  elmo:fragment [
+	elmo:applies-to "term";
+	elmo:contraint elmo:MandatoryConstraint;
+	elmo:index "2";
+  ];
+  elmo:fragment [
+    elmo:appearance elmo:SubmitAppearance;
+	rdfs:label "Search";
+	elmo:index "3";
+  ];
+ .

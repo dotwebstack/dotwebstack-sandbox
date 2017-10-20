@@ -1,0 +1,14 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+@prefix:stage <http://localhost:8080/stage#>.
+
+stage:ip-search a elmo:InformationProduct;
+  elmo:endpoint <http://nl.dbpedia.org/sparql>;
+  elmo:query '''
+    CONSTRUCT ?item ?item_label
+	WHERE {
+	  ?item rdf:type skos:Concept.
+	  ?item rdfs:label ?item_label.
+	  FILTER REGEX (?item_label, "@TERM@", "i")
+	}
+  ''';
+.

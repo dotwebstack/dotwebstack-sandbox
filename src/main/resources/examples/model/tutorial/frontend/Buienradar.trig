@@ -1,0 +1,7 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+
+@prefix stage: <http://localhost:8080/stage#>.
+
+stage:buienradar a elmo:Representation;
+elmo:informationProduct stage:ip-buienradar;
+.

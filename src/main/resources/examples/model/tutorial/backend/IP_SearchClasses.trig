@@ -1,0 +1,21 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+@prefix:stage <http://localhost:8080/stage#>.
+
+stage:ip-searchClasses a elmo:InformationProduct;
+   elmo:appearance elmo:HiddenAppearance;
+   elmo:endpoint <http://dbpedia.org/sparql>;
+   elmo:query '''
+     CONSTRUCT {
+	   ?class rdfs:label ?classlabel
+	 }
+	 WHERE {
+	   select distinct ?class ?classlabel
+	   WHERE {
+	     ?class rdf:type owl:Class.
+		 ?class rdfs:label ?classlabel.
+		 FILTER (lang(?classlabel)="@LANGUAGE@")
+		 FILTER REGEX (str(?class), "^http://dbpedia.org/ontology/")
+		 }
+	    }
+    ''';
+.

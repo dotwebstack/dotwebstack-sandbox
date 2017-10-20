@@ -1,0 +1,12 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+@prefix:stage <http://localhost:8080/stage#>.
+
+stage:ip-buienradar a elmo:InformationProduct;
+	elmo:url-pattern "query/buienradar$";
+	elmo:appearance elmo:GeoAppearance;
+	elmo:service "http://xml.buienradar.nl";
+	elmo:accept "application/xml";
+	elmo:translator elmo:BuienradarTranslator;
+.
+
+	

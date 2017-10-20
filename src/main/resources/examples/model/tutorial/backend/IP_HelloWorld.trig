@@ -1,0 +1,14 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+@prefix:stage <http://localhost:8080/stage#>.
+
+stage:ip-helloworld a elmo:InformationProduct;
+	elmo:url-pattern "query/helloWorld$";
+	elmo:appearance elmo:HtmlAppearance;
+	elmo:data [
+		rdfs:label "Hello World";
+		elmo:html '''
+			<h3>Hello World";</h3>
+			<p>This is the first of the DotWebStack Examples.</p>
+		''';
+	]
+.

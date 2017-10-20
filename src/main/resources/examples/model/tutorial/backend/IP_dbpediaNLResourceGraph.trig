@@ -1,0 +1,22 @@
+@prefix elmo: <http://dotwebstack.org/def/elmo#>.
+
+@prefix:stage <http://localhost:8080/stage#>.
+
+stage:dbpediaNLResourceGraph a elmo:InformationProduct;
+  elmo:appearance elmo:GraphAppearance;
+  elmo:index "2";
+  elmo:endpoint <http://nl.dbpedia.org/sparql>;
+  elmo:query '''
+    CONSTRUCT {
+	  <@SUBJECT@> ?p ?o.
+	  <@SUBJECT@> rdfs:label ?slabel.
+	  ?o rdfs:label ?olabel
+	}
+	WHERE {
+	  <@SUBJECT@> ?p ?o.
+	  <@SUBJECT@> rdfs:label ?slabel.
+	  ?o rdfs:label ?olabel
+	  FILTER (?p!=<http://dbpedia.org/ontology/wikiPageWikiLink>)
+	  }
+  ''';
+.
