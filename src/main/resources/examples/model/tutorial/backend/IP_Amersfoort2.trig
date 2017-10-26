@@ -1,31 +1,30 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-@prefix rdfs: <htpp://www.w3.org/2000/01/rdf-schema#>.
-@prefix:stage <http://localhost:8080/stage#>.
-
-stage:ip-amersfoort2 rdf:type elmo:InformationProduct;
-	elmo:fragment [
-		elmo:applies-to elmo:Fragment;
-		elmo:appearance elmo:HiddenAppearance;
-	];
-	elmo:fragment [
-		elmo:applies-to rdfs:comment;
-		rdfs:label "description"@en;
-		rdfs:label "omschrijving"@nl;
-	];
-	elmo:fragment [
-		elmo:applies-to <http://nl.dbpedia.org/property/postcode>;
-		rdfs:label "Het postcodegebied"@nl;
-	];
-	elmo:url-pattern "/amersfoort2$"; 
-	elmo:endpoint <http:dbpedia.org/sparql>;
-	elmo:query '''
-		CONSTRUCT {
-			<http://nl.dbpedia.org/resource/Amersfoort> ?p ?o
-		}
-		WHERE {
-			<http://nl.dbpedia.org/resource/Amersfoort> ?p ?o 
-		}
-	'''
+GRAPH config:TutorialTheatre {
+  config:IP_Amersfoort2 rdf:type elmo:InformationProduct;
+  
+  elmo:fragment [
+    elmo:appliesTo elmo:Fragment;
+	elmo:appearance elmo:HiddenAppearance;
+  ];
+  elmo:fragment [
+    elmo:appliesTo rdfs:comment;
+	rdfs:label "description"@en;
+	rdfs:label "omschrijving"@nl;
+  ];
+  elmo:fragment [
+    elmo:appliesTo <http://nl.dbpedia.org/property/postcode>;
+    rdfs:label "Het postcodegebied"@nl;
+  ];
+  elmo:urlPattern "/amersfoort2$";
+  elmo:endpoint <http://dbpedia.org/sparql>;
+  elmo:query '''
+    CONSTRUCT {
+	  <http://nl.dbpedia.org/resource/Amersfoort> ?p ?o
+	}
+	WHERE {
+	  <http://nl.dbpedia.org/resource/Amersfoort> ?p ?o
+	}
+  '''
 .
+}
 
 	

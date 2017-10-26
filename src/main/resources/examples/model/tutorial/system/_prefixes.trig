@@ -1,0 +1,17 @@
+@prefix config: 	<http://dotwebstack.org/configuration/>.
+
+@prefix dbo: 		<http://dbpedia.org/ontology/>.
+@prefix dbpedia: 	<http://dbpedia.org/resource/>.
+@prefix dbp: 		<http://dbpedia.org/property/>.
+@prefix dc: 		<http://purl.org/dc/elements/1.1>.
+@prefix dcterms: 	<http://purl.org/dc/terms/>.
+@prefix elmo:		<http://dotwebstack.org/def/elmo#>.
+@prefix geo: 		<http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix geosparql: 	<http://www.opengis.net/ont/geosparql#>.
+@prefix html: 		<http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdf: 		<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xhtml: 		<http://www.w3.org/1999/xhtml/vocab#>.
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#>.
+
+

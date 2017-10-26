@@ -1,9 +1,10 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-@prefix:stage <http://localhost:8080/stage#>.
-
-stage:geo a elmo:Representation;
-  elmo:informationProduct stage:ip-geo;
-.
+GRAPH config:TutorialTheatre {
+  
+  config:Geo rdf:type elmo:Representation;
+    elmo:urlPattern "/geo";
+	elmo:informationProduct config:IP_Geo
+  .
+}
 
 
 

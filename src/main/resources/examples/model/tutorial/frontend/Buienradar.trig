@@ -1,7 +1,7 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-
-@prefix stage: <http://localhost:8080/stage#>.
-
-stage:buienradar a elmo:Representation;
-elmo:informationProduct stage:ip-buienradar;
-.
+GRAPH config:TutorialTheatre {
+  
+  config:Buienradar a elmo:Representation;
+    elmo:urlPattern "/buienradar";
+    elmo:informationProduct config:IP_Buienradar
+  .
+}

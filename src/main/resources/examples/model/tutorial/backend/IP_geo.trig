@@ -1,41 +1,26 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-@prefix stage: <http://localhost:8080/stage#>.
-
-stage:ip-geo a elmo:InformationProduct;
-  elmo:url-pattern "query/geo$";
-  elmo:appearance elmo:GeoAppearance;
-  elmo:endpoint <https://data/pdok/nl/sparql>;
-  elmo:queryForm stage:geoForm;
-  elmo:query '''
-    prefix geosparql: <http://www.opengis.net/ont/geosparql#>
-	prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
-	prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-	construct {
-	  ?city geo:geometry ?wkt.
-	  ?city rdfs:label ?cityname.
-	}
-	WHERE {
-	  select *
-	    where {
-		  ?city rdf:type <http://bag.basisregistraties.overheid.nl/def/bag#Woonplaats>.
-		  ?city rdfs:label ?cityname.
-		  ?city geosparql:hasGeometry ?geo.
-		  ?geo geosparql:asWKT ?wkt.
-		  FILTER (?city = <http://bag.basisregistraties.overheid.nl/bag/id/woonplaats/1664>)
-		  FILTER REGEX (?cityname, "@NAAM@", "i")
-		}
-		limit 1
+GRAPH config:TutorialTheatre {
+  config:ip-geo a elmo:InformationProduct;
+    elmo:urlPattern "query/geo$";
+	elmo:endpoint <http://data/pdok/nl/sparql>;
+	elmo:appearance elmo:GeoAppearance;
+	elmo:queryForm config:geoForm;
+	elmo:query '''
+	  CONSTRUCT {
+	    ?city geo:geometry ?wkt.
+		?city rdfs:label ?cityname.
 	  }
-	'''
-.
-stage:geoForm a elmo:Form;
-	elmo:fragment [
-		rdfs:label "Woonplaats";
-		elmo:applies-to "naam";
-		elmo:constraint elmo:MandatoryConstraint
-	];
-	elmo:fragment [
-		rdfs:label "Toon";
-		elmo:appearance elmo:SubmitAppearance;
-	]
-.
+	  WHERE {
+	    SELECT *
+		  WHERE {
+		    ?city rdf:type <http://bag.basisregistraties.overheid.nl/def/bag#Woonplaats>.
+			?city rdfs:label ?cityname.
+			?city geosparql:hasGeometry ?geo.
+			?geo geosparql:asWKT ?wkt.
+			FILTER (?city = <http://bag.basisregistraties.overheid.nl/bag/id/woonplaats/1664>)
+			FILTER REGEX (?cityname, "@NAAM@", "i")
+		  }
+		  LIMIT 1
+		}
+      '''
+	.
+

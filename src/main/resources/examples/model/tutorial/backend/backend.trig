@@ -1,0 +1,14 @@
+@prefix elmo: 		<http://dotwebstack.org/def/elmo#>.
+
+@prefix dc: 		<http://purl.org/dc/elements/1.1>.
+@prefix html: 		<http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: 		<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: 		<http://www.w3.org/2001/XMLSchema#>.
+
+@prefix config: 	<http://localhost:8080/stage#>.
+
+graph config:TutorialTheatre {
+  config:MyLocalSparqlBackend a elmo:SparqlBackend;
+    elmo:endpoint "http://locahost:8890/sparql"^^xsd:anyURI;
+  .
+}

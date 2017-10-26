@@ -1,8 +1,7 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-@prefix:stage <http://localhost:8080/stage#>.
-
-stage:HelloWorld a elmo:Representation;
-	elmo:informationProduct stage:ip-helloworld;
+GRAPH config:TutorialTheatre {
+	
+	config:HelloWorld a elmo:Representation;
+	elmo:informationProduct config:IP_Helloworld;
 .
   
   

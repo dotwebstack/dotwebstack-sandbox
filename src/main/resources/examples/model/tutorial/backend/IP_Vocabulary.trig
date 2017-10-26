@@ -1,8 +1,6 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-@prefix:stage <http://localhost:8080/stage#>.
-
-stage:ip-vocabulary a elmo:InformationProduct;
+GRAPH config:TutorialTheatre {
+  config:ip-vocabulary a elmo:InformationProduct;
   elmo:appearance elmo:VocabularyAppearance;
-  elmo:webpage "http://www.w3.org/2000/01/rdf-schema";
-.
-
+  elmo:webpage "http://www.w3.org/2000/01/rdf-schema"
+  .
+}

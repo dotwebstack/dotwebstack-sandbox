@@ -1,10 +1,9 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-@prefix:stage <http://localhost:8080/stage#>.
-
-stage:ip-musicbrainz a elmo:InformationProduct;
-	elmo:appearance elmo:GraphAppearance;
-	elmo:uri-pattern "^http://musicbrainz.org/ws/2/artist";
+GRAPH config:TutorialTheatre {
+  config:ip_Musicbrainz a elmo:InformationProduct;
+    elmo:appearance elmo:GraphAppearance;
+	elmo:uriPattern "http://musicbrainz.org/ws/2/artist";
 	elmo:service "@SUBJECT@?inc=artist-rels";
 	elmo:accept "application/xml";
 	elmo:translator elmo:MusicbrainzTranslator;
-.
+  .
+}

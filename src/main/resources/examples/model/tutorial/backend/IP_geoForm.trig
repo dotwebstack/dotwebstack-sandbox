@@ -1,14 +1,13 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-@prefix stage: <http://localhost:8080/stage#>.
-
-stage:geoForm a elmo:Form;
-	elmo:fragment [
-		rdfs:label "Woonplaats";
-		elmo:applies-to "naam";
-		elmo:constraint elmo:MandatoryConstraint
+GRAPH config:TutorialTheatre {
+  config:geoForm a elmo:Form;
+    elmo:fragment [
+	  rdfs:label "woonplaats";
+	  elmo:appliesTo "naam";
+	  elmo:constraint elmo:MandatoryConstraint
 	];
 	elmo:fragment [
-		rdfs:label "Toon";
-		elmo:appearance elmo:SubmitAppearance;
+	  rdfs:label "Toon";
+	  elmo:appearance elmo:submitAppearance;
 	]
-.
+  .
+}

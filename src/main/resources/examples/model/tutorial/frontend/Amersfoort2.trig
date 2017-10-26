@@ -1,9 +1,7 @@
-@prefix elmo: 	<http://dotwebstack.org/def/elmo#>.
-@prefix rdfs: 	<htpp://www.w3.org/2000/01/rdf-schema#>.
+GRAPH config:TutorialTheatre {
 
-
-@prefix stage:	<http://localhost:8080/stage#>.
-
-stage:amersfoort2 rdf:type elmo:Representation;
-elmo:informationProduct stage:ip-amersfoort2;
-.
+  config:Amersfoort2 rdf:type elmo:Representation;
+    elmo:urlPattern "/amersfoort2";
+    elmo:informationProduct config:IP_Amersfoort2
+  .
+}

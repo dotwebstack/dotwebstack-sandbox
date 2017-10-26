@@ -1,7 +1,5 @@
-@prefix elmo: <http://dotwebstack.org/def/elmo#>.
-@prefix:stage <http://localhost:8080/stage#>.
-
-stage:ip-searchAdvanced a elmo:InformationProduct;
+GRAPH config:TutorialTheatre {
+  config:ip-searchAdvanced a elmo:InformationProduct;
   elmo:endpoint <http://nl.dbpedia.org/sparql>;
   elmo:with-parameter "class";
   elmo:query '''
@@ -12,5 +10,6 @@ stage:ip-searchAdvanced a elmo:InformationProduct;
 	  FILTER REGEX (?item_label, "@TERM@", "i";)
 	}
 	LIMIT 10
-  ''';
- .
+  '''
+.
+}
