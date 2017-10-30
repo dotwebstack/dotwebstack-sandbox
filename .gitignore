@@ -5,5 +5,8 @@
 .idea
 .project
 .settings
+src/main/frontend/etc
+src/main/frontend/node
+src/main/frontend/node_modules
 target
 *.iml

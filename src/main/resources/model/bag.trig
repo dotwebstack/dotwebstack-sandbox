@@ -6,6 +6,15 @@
 @prefix config: <http://dotwebstack.org/configuration/>.
 
 GRAPH config:SandboxTheatre {
+  bag:Site a elmo:Site;
+    elmo:domain "localhost";
+  .
+
+  bag:Stage a elmo:Stage;
+    elmo:site bag:Site;
+    elmo:basePath "/bag";
+  .
+
   bag:Backend a elmo:SparqlBackend;
     elmo:endpoint "https://data.pdok.nl/sparql"^^xsd:anyURI;
   .
@@ -47,5 +56,24 @@ GRAPH config:SandboxTheatre {
       }
       limit 20
     ''';
+  .
+
+  bag:Model a elmo:InformationProduct;
+    rdfs:label "BAG Model";
+    elmo:backend bag:Backend;
+    elmo:query '''
+      construct { ?s ?p ?o}
+      where {
+        graph <http://bag.basisregistraties.overheid.nl/model> {
+          ?s ?p ?o
+        }
+      }
+    ''';
+  .
+
+  bag:ModelRepresentation a elmo:Representation;
+    elmo:urlPattern "/model";
+    elmo:stage bag:Stage;
+    elmo:informationProduct bag:Model;
   .
 }

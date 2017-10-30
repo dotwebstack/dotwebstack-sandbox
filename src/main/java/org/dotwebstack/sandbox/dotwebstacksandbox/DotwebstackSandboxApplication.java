@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan("org.dotwebstack.framework")
+@ComponentScan("org.dotwebstack")
 public class DotwebstackSandboxApplication {
 
   public static void main(String[] args) {
