@@ -27000,6 +27000,30 @@ var hasType = function hasType(type) {
   };
 };
 
+var isParentClassOf = function isParentClassOf(c) {
+  return function (triple) {
+    return triple.subject.value === c && triple.predicate.value === 'http://www.w3.org/2000/01/rdf-schema#subClassOf';
+  };
+};
+
+var isSubClassOf = function isSubClassOf(c) {
+  return function (triple) {
+    return triple.predicate.value === 'http://www.w3.org/2000/01/rdf-schema#subClassOf' && triple.object.value === c;
+  };
+};
+
+var isLabel = function isLabel(subject) {
+  return function (triple) {
+    return triple.subject.value === subject && triple.predicate.value === 'http://www.w3.org/2000/01/rdf-schema#label';
+  };
+};
+
+var isPrefLabel = function isPrefLabel(subject) {
+  return function (triple) {
+    return triple.subject.value === subject && triple.predicate.value === 'http://www.w3.org/2004/02/skos/core#prefLabel';
+  };
+};
+
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -27028,44 +27052,119 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       var classes = R.filter(hasType('http://www.w3.org/2002/07/owl#Class'), this.state.graph);
       var concepts = R.filter(hasType('http://www.w3.org/2004/02/skos/core#Concept'), this.state.graph);
 
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-          'table',
-          { className: 'table' },
-          _react2.default.createElement(
-            'thead',
-            null,
+        classes.map(function (triple, index) {
+          var labelTriple = R.head(R.filter(isLabel(triple.subject.value), _this3.state.graph));
+          var prefLabelTriple = R.head(R.filter(isPrefLabel(triple.subject.value), _this3.state.graph));
+          var label = prefLabelTriple ? prefLabelTriple.object.value : labelTriple ? labelTriple.object.value : triple.subject.value;
+
+          return _react2.default.createElement(
+            'div',
+            { className: 'panel panel-default', key: index },
             _react2.default.createElement(
-              'tr',
-              null,
+              'div',
+              { className: 'panel-heading' },
               _react2.default.createElement(
-                'th',
-                null,
-                'Classes'
+                'h3',
+                { className: 'panel-title' },
+                label
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'panel-body' },
+              _react2.default.createElement(
+                'table',
+                { className: 'table' },
+                _react2.default.createElement(
+                  'tbody',
+                  null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      'URI:'
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'a',
+                        { href: triple.subject.value },
+                        triple.subject.value
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      'Subklasse van:'
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        R.filter(isParentClassOf(triple.subject.value), _this3.state.graph).map(function (parentClass, index) {
+                          return _react2.default.createElement(
+                            'li',
+                            { key: index },
+                            _react2.default.createElement(
+                              'a',
+                              { href: parentClass.object.value },
+                              parentClass.object.value
+                            )
+                          );
+                        })
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      'Heeft subklassen:'
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        R.filter(isSubClassOf(triple.subject.value), _this3.state.graph).map(function (parentClass, index) {
+                          return _react2.default.createElement(
+                            'li',
+                            { key: index },
+                            _react2.default.createElement(
+                              'a',
+                              { href: parentClass.subject.value },
+                              parentClass.subject.value
+                            )
+                          );
+                        })
+                      )
+                    )
+                  )
+                )
               )
             )
-          ),
-          _react2.default.createElement(
-            'tbody',
-            null,
-            classes.map(function (triple, index) {
-              return _react2.default.createElement(
-                'tr',
-                { key: index },
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  triple.subject.value
-                )
-              );
-            })
-          )
-        ),
+          );
+        }),
         _react2.default.createElement(
           'table',
           { className: 'table' },
