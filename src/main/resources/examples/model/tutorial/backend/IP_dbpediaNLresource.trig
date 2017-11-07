@@ -1,0 +1,21 @@
+GRAPH config:TutorialTheatre {
+  config:IP_DbpediaNLResource a elmo:InformationProduct;
+    elmo:urlPattern "^http://dbpedia.org/";
+	elmo:endpoint <http://dbpedia.org/sparql>;
+	elmo:query '''
+	  CONSTRUCT {
+	    <@SUBJECT@> ?p ?o.
+		?o rdfs:label ?olabel.
+		}
+		WHERE {
+		  <@SUBJECT@> ?p ?o
+		  FILTER (isIri(?o) or lang(?o)= "" or lang(?o) = "@LANGUAGE@";)
+		OPTIONAL {
+		  ?o rdfs:label ?olabel.
+		  FILTER (lang(?olabel) or lang(?olabel)="@LANGUAGE@")
+		    }
+		  }
+		'''
+	.
+}
+

@@ -1,0 +1,7 @@
+GRAPH config:TutorialTheatre {
+
+  config:dbpedia a elmo:Representation;
+    elmo:urlPattern "/dbpedia";
+	elmo:informationProduct config:IP_Dbpedia
+  .
+}

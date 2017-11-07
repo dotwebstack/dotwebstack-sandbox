@@ -1,0 +1,9 @@
+GRAPH config:TutorialTheatre {
+	
+	config:HelloWorld a elmo:Representation;
+	elmo:informationProduct config:IP_Helloworld;
+.
+  
+  
+  
+  

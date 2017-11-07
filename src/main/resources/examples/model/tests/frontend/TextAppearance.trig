@@ -1,0 +1,58 @@
+graph config:TestStage {
+
+# ------------------------------------------------------------------------------------------TextAppearance
+
+  config:TextAppearance a elmo:Representation;
+    elmo:url-pattern "/text-appearance$";
+    elmo:index "1";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:TextAPP;
+    elmo:appearance elmo:TextAppearance;
+  
+    xhtml:stylesheet "/css/Symboolcodelijst.css";
+  
+    elmo:fragment [
+      elmo:applies-to "binnen";
+      xhtml:stylesheet "fill: red; fill-opacity: 1.0; stroke: red;";
+    ];
+  
+    elmo:fragment [
+      elmo:applies-to "buiten";
+      xhtml:stylesheet "fill: blue; fill-opacity: 1.0; stroke: blue;";
+    ];
+
+    elmo:informationProduct config:IP_TextAppearance
+  .
+  
+#-----------------------------------------------------------------------------------------SectionTextAppearance  
+  
+  config:SectionTextAppearance a elmo:Representation;
+    elmo:applies-to [rdf:type xhtml:section];
+    elmo:index "1";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:SectionTextAppearanceTree;
+    elmo:appearance elmo:TextAppearance;
+    xhtml:stylesheet "/css/Symboolcodelijst.css";
+  
+    elmo:fragment [
+      elmo:applies-to "binnen";
+      xhtml:stylesheet "fill: red; fill-opacity: 1.0; stroke: red;";
+    ];
+  
+    elmo:fragment [
+      elmo:applies-to "buiten";
+      xhtml:stylesheet "fill: blue; fill-opacity: 1.0; stroke: blue;";
+    ];  
+  
+    elmo:informationProduct config:IP_SectionTextAppearance
+  .
+
+#-----------------------------------------------------------------------------------------SectionTextAppearanceTree  
+
+  config:SectionTextAppearanceTree a elmo:Part;
+    elmo:appearance elmo:TreeAppearance;
+    elmo:informationProduct config:IP_SectionTextAppearanceTree
+  .
+}  

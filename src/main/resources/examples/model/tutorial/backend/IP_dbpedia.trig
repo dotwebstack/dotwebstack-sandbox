@@ -1,0 +1,19 @@
+GRAPH config:TutorialTheatre {
+  config:IP_dbpedia a elmo:InformationProduct;
+  elmo:urlPattern "/query/dbpedia$";
+  elmo:endpoint <http://nl.dbpedia.org/sparql>;
+  elmo:fragment [
+    elmo:appliesTo "type";
+	rdfs:label "Classes at nl.dbpedia"@en;
+	rdfs:label "Aanwezig klassen in nl.dbpedia"@nl;
+  ];
+  elmo:query '''
+    SELECT DISTINCT ?type ?type_label (count(?s) as ?type_count)
+	WHERE {
+	  ?s rdf:type ?type.
+	  OPTIONAL {?type rdfs:label ?type_label}
+	}
+	LIMIT 100
+  '''
+.
+}

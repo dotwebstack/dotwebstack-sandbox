@@ -1,0 +1,128 @@
+swagger: 2.0
+info:
+  title: Tutorial API
+  version: 1.0
+host:localhost
+basePath: /tutorial/api/v1
+produces:
+ - text/plain
+paths:
+
+#--------------------------------------------------------------------------------------------------Amersfoort---------------------------------
+
+/query/amersfoort:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Amersfoort"
+    responses:
+      200:
+        description: OK
+
+#--------------------------------------------------------------------------------------------------Amersfoort2--------------------------------
+
+/query/amersfoort2:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Amersfoort2"
+    responses:
+      200:
+        description: OK
+
+#--------------------------------------------------------------------------------------------------Buienradar--------------------------------
+
+/query/buienradar:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Buienradar"
+    responses:
+      200:
+        description: OK
+
+#--------------------------------------------------------------------------------------------------Dbpedia-----------------------------------
+
+/query/dbpedia:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Dbpedia"
+    responses:
+      200:
+        description: OK
+        
+#--------------------------------------------------------------------------------------------------DbpediaNLResource------------------------
+
+/query/dbpedianlresource:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_DbpediaNLResource"
+    responses:
+      200:
+        description: OK
+       
+#--------------------------------------------------------------------------------------------------DbpediaNLResourceGraph-------------------
+
+/query/dbpedianlresourcegraph:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_DbpediaNLResourceGraph"
+    responses:
+      200:
+        description: OK
+      
+#---------------------------------------------------------------------------------------------------GEO-------------------------------------
+
+/query/geo:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Geo"
+    responses:
+      200:
+        description: OK
+
+#---------------------------------------------------------------------------------------------------HelloWorld------------------------------
+
+/query/helloworld:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Helloworld"
+    responses:
+      200:
+        description: OK
+        
+#---------------------------------------------------------------------------------------------------Muzicbrainz-----------------------------
+
+/query/muzicbrainz:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Muzicbrainz"
+    responses:
+      200:
+        description: OK
+        
+#----------------------------------------------------------------------------------------------------Search---------------------------------
+
+/query/search:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_search"
+    responses:
+      200:
+        description: OK
+        
+#----------------------------------------------------------------------------------------------------SearchAdvanced-------------------------
+
+/query/searchadvanced:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_searchAdvanced"
+    responses:
+      200:
+        description: OK
+    
+#----------------------------------------------------------------------------------------------------SearchClasses--------------------------
+
+/query/searchclasses:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_searchClasses"
+    responses:
+      200:
+        description: OK
+        
+#----------------------------------------------------------------------------------------------------Vocabulary----------------------------
+
+/query/vocabulary:
+  get:
+    x-dotwebstack-information-product: "http://localhost:8080/stage#IP_Vocabulary"
+    responses:
+      200:
+        description: OK
+
+#------------------------------------------------------------------------------------------------------------------------------------------

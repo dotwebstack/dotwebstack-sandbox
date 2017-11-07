@@ -1,0 +1,20 @@
+GRAPH config:TutorialTheater {
+  config:ip-searchClasses a elmo:InformationProduct;
+  elmo:appearance elmo:HiddenAppearance;
+  elmo:endpoint <http://dbpedia.org/sparql>;
+  elmo:query '''
+    CONSTRUCT {
+	  ?class rdfs:label ?classlabel
+	}
+	WHERE {
+	  SELECT DISTINCT ?class ?classlabel
+	  WHERE {
+	    ?class rdf:type owl:Class.
+		?class rdfs:label ?classlabel.
+		FILTER (lang(?classlabel)="@LANGUAGE@")
+		FILTER REGEX (str(?class), "^http://dbpedia.org/ontology/")
+		}
+	  }
+	''';
+  .
+}

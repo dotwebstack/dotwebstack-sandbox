@@ -1,0 +1,15 @@
+graph config:TestStage {
+
+  config:StylesheetTest a elmo:Representation;
+    elmo:url-pattern "/stylesheet-test";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:name "city";
+    rdfs:label "City: "@en;
+    rdfs:label "Stad: "@nl;
+    html:stylesheet "/css/icons.css";
+    elmo:index "1";
+  
+  elmo:informationProduct config:IP_Stylesheet
+.
+}

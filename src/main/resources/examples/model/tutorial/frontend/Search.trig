@@ -1,0 +1,28 @@
+GRAPH config:TutorialTheatre {
+  
+  config:Search a elmo:Representation;
+    elmo:urlPattern "/query/search$";
+	elmo:queryForm config:searchForm;
+	elmo:informationProduct config:IP_search;
+ 	elmo:informationProduct config:IP_searchAdvanced;
+	elmo:informationProduct config:IP_searchClasses
+  .
+  config:searchForm a elmo:Form;
+    elmo:fragment [
+      elmo:appliesTo "class";
+      elmo:valuesFrom config:IP_searchClasses;
+	  elmo:index "1";
+	];
+	elmo:fragment [
+	  elmo:appliesTo "term";
+	  elmo:constraint elmo:MandatoryConstraint;
+	  elmo:index "2";
+	];
+	elmo:fragment [
+	  elmo:appearance elmo:SubmitAppearance;
+	  rdfs:label "Search";
+	  elmo:index "3";
+	]
+  .
+}
+

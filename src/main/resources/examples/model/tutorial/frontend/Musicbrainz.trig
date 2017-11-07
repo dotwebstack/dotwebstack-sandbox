@@ -1,0 +1,7 @@
+GRAPH config:TutorialTheatre {
+
+  config:Musicbrainz a elmo:Representation;
+    elmo:informationProduct config:IP_Musicbrainz
+  .
+}
+

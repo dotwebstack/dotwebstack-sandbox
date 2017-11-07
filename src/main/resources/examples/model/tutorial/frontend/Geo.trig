@@ -1,0 +1,12 @@
+GRAPH config:TutorialTheatre {
+  
+  config:Geo rdf:type elmo:Representation;
+    elmo:urlPattern "/geo";
+	elmo:informationProduct config:IP_Geo
+  .
+}
+
+
+
+
+  

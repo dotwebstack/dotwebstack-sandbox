@@ -1,0 +1,15 @@
+GRAPH config:TutorialTheatre {
+  config:ip-searchAdvanced a elmo:InformationProduct;
+  elmo:endpoint <http://nl.dbpedia.org/sparql>;
+  elmo:with-parameter "class";
+  elmo:query '''
+    CONSTRUCT ?item ?item_label
+	WHERE {
+	  ?item rdf:type <@CLASS@>.
+	  ?item rdfs:label ?item_label.
+	  FILTER REGEX (?item_label, "@TERM@", "i";)
+	}
+	LIMIT 10
+  '''
+.
+}

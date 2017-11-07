@@ -1,0 +1,11 @@
+GRAPH config:TutorialTheatre {
+  config:IP_Buienradar a elmo:InformationProduct;
+    elmo:urlPattern "query/buienradar$";
+	elmo:appearance elmo:GeoAppearance;
+	elmo:service "http://xml.buienradar.nl";
+	elmo:accept "application/xml";
+	elmo:translator elmo:BuienradarTranslator
+  .
+}
+
+	

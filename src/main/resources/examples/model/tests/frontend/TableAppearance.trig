@@ -1,0 +1,38 @@
+graph config:TestStage {
+
+  config:TableAppearance a elmo:Representation;
+    elmo:url-pattern "/table-appearance$";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:TableAppearance_table1;
+    elmo:informationProduct config:IP_TableAppearanceQuery2
+  .
+
+  config:TableAppearance_table1 a elmo:Representation;
+    elmo:index "1";
+    elmo:informationProduct config:IP_TableAppearanceQuery1
+  .
+
+#------------------------------------------------Special table appearance for regression test purposes (to minimize regression due to different data)
+
+  config:TableAppearance2 a elmo:Representation;
+    elmo:url-pattern "/table-appearance2";
+    elmo:contains config:TableAppearance2_table1;
+    elmo:contains config:TableAppearance2_table2;
+    elmo:informationProduct config:IP_TableAppearanceQuery2
+  .
+#------------------------------------------------------------------------------------------------------------------
+
+  config:TableAppearance2_table1 a elmo:Representation;
+    rdfs:label "All defined classes within the test dataset";
+    elmo:index "1";
+    elmo:informationProduct config:IP_TableAppearanceQuery3
+  .  
+  
+  config:TableAppearance2_table2 a elmo:Representation;
+    rdfs:label "All defined properties within the test dataset";
+    elmo:index "2";
+    elmo:informationProduct config:IP_TableAppearanceQuery4
+  .
+
+}

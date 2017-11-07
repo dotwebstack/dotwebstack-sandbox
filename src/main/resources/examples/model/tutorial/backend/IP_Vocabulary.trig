@@ -1,0 +1,6 @@
+GRAPH config:TutorialTheatre {
+  config:ip-vocabulary a elmo:InformationProduct;
+  elmo:appearance elmo:VocabularyAppearance;
+  elmo:webpage "http://www.w3.org/2000/01/rdf-schema"
+  .
+}

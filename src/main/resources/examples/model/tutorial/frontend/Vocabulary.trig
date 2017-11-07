@@ -1,0 +1,7 @@
+GRAPH config:TutorialTheatre {
+  
+  config:Vocabulary rdf:type elmo:Representation;
+    elmo:urlPattern "query/vocabulary$";
+	elmo:informationProduct config:IP_Vocabulary
+  .
+}

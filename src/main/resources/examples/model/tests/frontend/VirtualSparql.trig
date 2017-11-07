@@ -1,0 +1,33 @@
+
+graph config:TestStage {
+  config:VirtualSparql a elmo:Representation;
+    elmo:url-pattern "/virtual-sparql$";
+    elmo:index "1";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:VirtualSparql_resource;
+    elmo:contains config:VirtualSparql_dataset;
+    elmo:contains config:VirtualSparql_resource2;
+  .
+
+  # ------------------------------------------------------------------------------------------------- IP_VirtualSparql_resource ---------------------------------------------------------
+
+  config:VirtualSparql_resource a elmo:Representation;
+    elmo:index "1";
+    elmo:informationProduct config:IP_VirtualSparql_resource
+  .
+
+  # ------------------------------------------------------------------------------------------------- IP_VirtualSparql_dataset ---------------------------------------------------------
+
+  config:VirtualSparql_dataset a elmo:Representation;
+    elmo:index "2";
+    elmo:informationProduct config:IP_VirtualSparql_dataset
+  .
+
+  # ------------------------------------------------------------------------------------------------- IP_VirtualSparql_resource2 ---------------------------------------------------------
+
+  config:VirtualSparql_resource2 a elmo:Representation;
+    elmo:index "3";   
+    elmo:informationProduct config:IP_VirtualSparql_resource2
+  .	
+}

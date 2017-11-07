@@ -1,0 +1,18 @@
+graph config:TestTheatre {
+ 
+  config:IP_ServiceDuo a elmo:InformationProduct;
+    elmo:query '''
+      construct {
+        ?s ?p ?o
+      }
+      where {
+        service <http://localhost:8080/url> {
+          ?s rdfs:isDefinedBy <http://api.duo.nl/v0/datasets/01.-hoofdvestigingen-vo/search?brin=18BR>.
+          ?s ?p ?o
+        }
+        FILTER (?p!=<https://api.duo.nl/Results>)
+      }
+    ''';
+  .
+  
+}

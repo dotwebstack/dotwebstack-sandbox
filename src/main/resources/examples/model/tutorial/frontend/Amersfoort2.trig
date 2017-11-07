@@ -1,0 +1,7 @@
+GRAPH config:TutorialTheatre {
+
+  config:Amersfoort2 rdf:type elmo:Representation;
+    elmo:urlPattern "/amersfoort2";
+    elmo:informationProduct config:IP_Amersfoort2
+  .
+}

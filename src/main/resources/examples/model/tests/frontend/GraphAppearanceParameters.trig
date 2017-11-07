@@ -1,0 +1,28 @@
+graph config:Testconfig {
+
+  config:GraphAppearanceParameters  a  elmo:Representation;
+      elmo:url-pattern  "/graph-appearance-parameters$";
+      elmo:uri-pattern "^http://localhost:8080/id/testen/graph$";
+      elmo:contains config:HeaderAppearance;
+      elmo:contains config:NavbarSearchAppearance;
+      elmo:contains config:GraphAppearanceParameters_tab;
+      elmo:contains config:GraphAppearanceParameters_content;
+    .
+    config:GraphAppearanceParameters_tab elmo:index "1";
+      elmo:appearance elmo:IndexAppearance;
+      elmo:data [
+        html:link "/resource?representation=http%3A%2F%2Flocalhost%3A8080%2Fconfig%23GraphAppearanceParameters_content&subject=http://localhost:8080/id/test&para=paradata";
+        elmo:name "format";
+        rdfs:label "xml|json|ttl|csv|txt|excel|word|pdf|xmi|svgi|d3json|graphml|yed|query|exml|rdfa";
+        rdf:value "xml|json|ttl|csv|txt|xlsx|docx|pdf|xmi|svgi|d3json|graphml|yed|query|exml|rdfa";
+      ];
+    .
+    
+    
+    config:GraphAppearanceParameters_content elmo:index "2";
+      elmo:appearance elmo:GraphAppearance;
+      elmo:informationProduct config:IP_GraphAppearanceParameters
+    .
+
+
+}

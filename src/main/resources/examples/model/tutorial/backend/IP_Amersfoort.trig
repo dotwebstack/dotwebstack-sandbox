@@ -1,0 +1,16 @@
+GRAPH config:TutorialTheatre {
+  config:IP_Amersfoort a elmo:InformationProduct;
+  
+  elmo:endpoint <http://nl.dbpedia.org/sparql>;
+  elmo:query '''
+    CONSTRUCT {
+	  <http://nl.dbpedia.org/resource/Amersfoort> ?p ?o
+	}
+	WHERE {
+	  <http://nl.dbpedia.org/resource/Amersfoort> ?p ?o 
+	}
+  ''';
+.
+}
+
+

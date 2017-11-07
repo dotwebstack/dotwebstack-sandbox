@@ -1,0 +1,26 @@
+GRAPH config:TutorialTheatre {
+  config:ip-geo a elmo:InformationProduct;
+    elmo:urlPattern "query/geo$";
+	elmo:endpoint <http://data/pdok/nl/sparql>;
+	elmo:appearance elmo:GeoAppearance;
+	elmo:queryForm config:geoForm;
+	elmo:query '''
+	  CONSTRUCT {
+	    ?city geo:geometry ?wkt.
+		?city rdfs:label ?cityname.
+	  }
+	  WHERE {
+	    SELECT *
+		  WHERE {
+		    ?city rdf:type <http://bag.basisregistraties.overheid.nl/def/bag#Woonplaats>.
+			?city rdfs:label ?cityname.
+			?city geosparql:hasGeometry ?geo.
+			?geo geosparql:asWKT ?wkt.
+			FILTER (?city = <http://bag.basisregistraties.overheid.nl/bag/id/woonplaats/1664>)
+			FILTER REGEX (?cityname, "@NAAM@", "i")
+		  }
+		  LIMIT 1
+		}
+      '''
+	.
+

@@ -1,0 +1,13 @@
+GRAPH config:TutorialTheatre {
+  config:IP_Helloworld a elmo:InformationProduct;
+    elmo:urlPattern "query/helloWorld$";
+	elmo:appearance elmo:HtmlAppearance;
+	elmo:data [
+	  rdfs:label "Hello World";
+	  elmo:html '''
+	    <h3>Hello World</h3>
+		<p>This is the first of the DotWebstack Examples.</p>
+	  ''';
+	]
+  .
+}

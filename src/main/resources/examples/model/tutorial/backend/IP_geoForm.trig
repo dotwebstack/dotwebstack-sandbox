@@ -1,0 +1,13 @@
+GRAPH config:TutorialTheatre {
+  config:geoForm a elmo:Form;
+    elmo:fragment [
+	  rdfs:label "woonplaats";
+	  elmo:appliesTo "naam";
+	  elmo:constraint elmo:MandatoryConstraint
+	];
+	elmo:fragment [
+	  rdfs:label "Toon";
+	  elmo:appearance elmo:submitAppearance;
+	]
+  .
+}
