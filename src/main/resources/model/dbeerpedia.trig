@@ -30,6 +30,12 @@ GRAPH config:SandboxTheatre {
     elmo:informationProduct dbeerpedia:TupleBreweries;
   .
 
+  dbeerpedia:id2doc a elmo:Redirection;
+    elmo:stage dbeerpedia:Stage;
+  	elmo:urlPattern "^\\/breweries\\/(.+)$";
+  	elmo:targetUrl "\\/$1-breweries"
+  .
+
   dbeerpedia:TupleBreweries a elmo:InformationProduct;
     rdfs:label "Beer breweries in The Netherlands";
     elmo:backend dbeerpedia:Backend;
