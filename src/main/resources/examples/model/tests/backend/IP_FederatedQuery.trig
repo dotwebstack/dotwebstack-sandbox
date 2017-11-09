@@ -1,0 +1,76 @@
+graph config:TestTheatre {
+
+config:IP_FederatedQuery a elmo:InformationProduct;
+elmo:query '''
+		construct {
+			<${subject}> rdfs:label ?title.
+			<${subject}> <http://schema.org/Movie#description> ?description.
+			<${subject}> rdf:type ?type.
+			<${subject}> <http://schema.org/Movie#actor> ?actor.
+			?actor rdfs:label ?actorname.
+		}
+		where {
+			service <http://localhost:8080/url> {
+				<${subject}> <http://www.w3.org/1999/xhtml/microdata#item> ?movie.
+				<${subject}> <http://www.w3.org/1999/xhtml/vocab#title> ?title.
+				<${subject}> <http://www.w3.org/1999/xhtml/vocab#description> ?description.
+				?movie a ?type.
+				?movie <http://schema.org/Movie/actor> ?actor.
+				?actor <http://schema.org/Person/name> ?actorname.
+				?actor <http://schema.org/Person/url> ?url.
+			}
+		}
+	''';
+.
+
+config:IP_Federated2Query a elmo:InformationProduct;
+elmo:query '''
+		construct {
+			<${subject}> rdf:type ?type.
+			<${subject}> rdfs:label ?title.
+			<${subject}> <http://schema.org/Movie#description> ?description.
+			<${subject}> <http://schema.org/Movie#actor> ?actorurl.
+			?actorurl rdfs:label ?actorname.
+			?movieurl <http://schema.org/Movie#actor> <${subject}>.
+			?movieurl rdfs:label ?moviename.
+		}
+		where {
+			service <http://localhost:8080/url> {
+				<${subject}> <http://ogp.me/ns#title> ?title.
+				OPTIONAL {
+					<${subject}> <http://ogp.me/ns#title> ?description.
+					?subject a ?type.
+					?subject <http://schema.org/actors> ?actor.
+					?actor <http://schema.org/name> ?actorname.
+					?actor <http://schema.org/sameAs> ?actorurl.
+				}
+				OPTIONAL {
+					<${subject}> <http://www.w3.org/1999/xhtml/microdata#item> ?movie.
+					?movie <https://schema.org/Movie/url> ?movieurl.
+					?movie <https://schema.org/Movie/name> ?moviename.
+				}
+			}
+		}
+	''';
+.
+
+config:IP_Federated3Query a elmo:InformationProduct;
+elmo:query '''
+		construct {
+			<${subject}> rdf:type ?type.
+			<${subject}> rdfs:label ?title.
+			?movieurl <http://schema.org/Movie#actor> <${subject}>.
+			?movieurl rdfs:label ?moviename.
+		}
+		where {
+			service <http://localhost:8080/url> {
+				<${subject}> <http://ogp.me/ns#title> ?title.
+				<${subject}> <http://www.w3.org/1999/xhtml/microdata#item> ?movie.
+				?movie <https://schema.org/Movie/url> ?movieurl.
+				?movie <https://schema.org/Movie/name> ?moviename.
+			}
+		}
+	''';
+.
+
+}

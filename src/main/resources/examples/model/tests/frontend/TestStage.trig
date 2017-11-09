@@ -1,0 +1,58 @@
+graph config:TestStage {
+
+  config:FrameAppearance a elmo:Representation;
+    elmo:url-pattern "/frame-appearance";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:contains config:FrameAppearance_Frame;
+  .
+
+  config:FrameAppearance_Frame a elmo:Part;
+    elmo:appearance elmo:FrameAppearance;
+    elmo:data [
+      elmo:data [
+        html:link "/frame-left";
+        elmo:index "1";
+      ];
+      elmo:data [
+        html:link "/frame-right";
+        elmo:index "2";
+      ]
+    ]
+  .
+
+  config:FrameAppearance_Left a elmo:Representation;
+    elmo:url-pattern "/frame-left$";
+    elmo:appearance elmo:HtmlAppearance;
+    elmo:data [
+      rdfs:label "Left";
+      elmo:html '''
+        <p>Frame left</p>
+        <a href="#" onclick="parent.document.getElementsByName('frame2')[0].src='/query/FrameRight2'; return false;">Refresh right frame</a>
+      ''';
+    ]
+  .
+
+  config:FrameAppearance_Right a elmo:Representation;
+    elmo:url-pattern "/frame-right$";
+    elmo:appearance elmo:HtmlAppearance;
+    elmo:data [
+      rdfs:label "Right";
+      elmo:html '''
+        <p>Frame right</p>
+      ''';
+    ]
+  .
+
+  config:FrameAppearance_Right2 a elmo:Representation;
+    elmo:url-pattern "/frame-right2$";
+    elmo:appearance elmo:HtmlAppearance;
+    elmo:data [
+      rdfs:label "Right (new content)";
+      elmo:html '''
+        <p>Frame right (new content)</p>
+      ''';
+    ]
+  .
+ 
+}

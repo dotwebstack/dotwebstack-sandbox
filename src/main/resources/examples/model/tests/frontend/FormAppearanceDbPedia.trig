@@ -1,0 +1,55 @@
+graph config:Testconfig {
+
+  stage:FormAppearanceDbPedia	a	elmo:Representation;
+    elmo:url-pattern	"/query-formappearancedbpedia$";
+    elmo:contains stage:HeaderAppearance;
+    elmo:contains stage:NavbarSearchAppearance;
+    elmo:contains	stage:FormAppearanceDbPedia-places;
+    elmo:appearance elmo:ContentAppearance;
+    elmo:endpoint <http://dbpedia.org/sparql>;
+    elmo:queryForm stage:FormAppearanceDbPedia-form;
+    elmo:fragment [
+      elmo:applies-to "person";
+      rdfs:label "Persoon"@nl;
+      rdfs:label "Person"@en;
+    ];
+    elmo:fragment [
+      elmo:applies-to "birth";
+      rdfs:label "Geboortejaar"@nl;
+      rdfs:label "Year of birth"@en;
+    ];
+    elmo:fragment [
+      elmo:applies-to "desc";
+      rdfs:label "Beroep"@nl;
+      rdfs:label "Occupation"@en;
+    ];
+    elmo:informationProduct config:IP_FormAppearanceDbPedia;
+  .  
+
+  stage:FormAppearanceDbPedia-form a elmo:Form;
+    elmo:fragment [
+      elmo:applies-to "birthplace";
+      rdfs:label "Birth place"@nl;
+      elmo:constraint elmo:MandatoryConstraint;
+      elmo:valuesFrom stage:FormAppearanceDbPedia-places;
+      elmo:index "1";
+    ];
+    elmo:fragment [
+      elmo:applies-to "birthyear";
+      rdfs:label "Geboren VOOR"@nl;
+      elmo:valueDatatype xsd:Date;
+      elmo:index "2";
+    ];
+    elmo:fragment [
+      elmo:appearance elmo:SubmitAppearance;
+      rdfs:label "Search"@nl;
+      elmo:index "3";
+    ];
+  .
+
+  stage:FormAppearanceDbPedia-places elmo:appearance elmo:HiddenAppearance;
+    elmo:endpoint <http://dbpedia.org/sparql>;
+    elmo:informationProduct config:IP_FormAppearanceDbPedia-places;
+  .
+
+}

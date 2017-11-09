@@ -1,0 +1,72 @@
+graph config:TestTheatre {
+
+  config:IP_ElmoVocabulary a elmo:InformationProduct;
+    elmo:query '''
+        CONSTRUCT {?s?p?o}
+        WHERE {
+          GRAPH <http://bp4mc2.org/elmo/def> {
+            ?s?p?o
+          }
+        }
+      '''
+    .
+
+  config:IP_ElmoVocabularyQuery a elmo:InformationProduct;
+      elmo:query '''
+        prefix sh: <http://www.w3.org/ns/shacl#>
+        CONSTRUCT {
+          ?shape rdf:type sh:NodeShape.
+          ?shape sh:name ?shapename.
+          ?shape sh:targetClass ?class.
+          ?class rdf:type owl:Class.
+          ?class rdfs:subClassOf ?pclass.
+          ?shape sh:property ?property.
+          ?property ?pp ?po
+        }
+        WHERE {
+          GRAPH <http://bp4mc2.org/elmo/def> {
+            {
+              ?shape rdf:type sh:NodeShape.
+              ?shape sh:name ?shapename.
+              ?shape sh:targetClass ?class.
+              OPTIONAL {?class rdfs:subClassOf ?pclass}
+              OPTIONAL {
+                ?shape sh:property ?property.
+                ?property ?pp ?po
+              }
+            }
+          }
+        }
+      '''
+    .
+
+  config:IP_Elmo2VocabularyQuery a elmo:InformationProduct;
+      elmo:query '''
+        prefix sh: <http://www.w3.org/ns/shacl#>
+        CONSTRUCT {
+          ?shape rdf:type sh:NodeShape.
+          ?shape sh:name ?shapename.
+          ?shape sh:targetClass ?class.
+          ?class rdf:type owl:Class.
+          ?class rdfs:subClassOf ?pclass.
+          ?shape sh:property ?property.
+          ?property ?pp ?po
+        }
+        WHERE {
+          GRAPH <http://bp4mc2.org/elmo2/def> {
+            {
+              ?shape rdf:type sh:NodeShape.
+              ?shape sh:name ?shapename.
+              ?shape sh:targetClass ?class.
+              OPTIONAL {?class rdfs:subClassOf ?pclass}
+              OPTIONAL {
+                ?shape sh:property ?property.
+                ?property ?pp ?po
+              }
+            }
+          }
+        }
+      '''
+    .
+
+}

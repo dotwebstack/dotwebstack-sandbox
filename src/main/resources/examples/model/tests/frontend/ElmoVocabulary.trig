@@ -1,0 +1,39 @@
+graph config:Testconfig {
+
+  config:ElmoVocabulary	a	elmo:Representation;
+    elmo:url-pattern	"/query/elmo(|.ttl|.xml|.json)$";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:appearance elmo:VocabularyAppearance;
+    elmo:informationProduct config:IP_ElmoVocabulary;
+    
+  config:ElmoVocabularyYed a elmo:Representation;
+    elmo:url-pattern	"/query/elmo-model.yed$";
+    elmo:appearance elmo:VocabularyAppearance;
+    elmo:informationProduct config:IP_ElmoVocabularyQuery;
+  .	
+  config:ElmoVocabularyModel	a	elmo:Representation;
+    elmo:url-pattern	"/query/elmo-model$";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:appearance elmo:ModelAppearance;
+    elmo:informationProduct config:IP_ElmoVocabularyQuery;
+  .
+
+  config:Elmo2VocabularyYed a elmo:Representation;
+    elmo:url-pattern	"/query/elmo2-model.yed$";
+    elmo:appearance elmo:VocabularyAppearance;
+    elmo:informationProduct config:IP_Elmo2VocabularyQuery;
+  .	
+
+  config:Elmo2VocabularyModel a elmo:Representation;
+    elmo:url-pattern "/query/elmo2-model$";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:appearance elmo:ModelAppearance;
+    elmo:informationProduct config:IP_Elmo2VocabularyQuery;
+  .
+
+
+
+}

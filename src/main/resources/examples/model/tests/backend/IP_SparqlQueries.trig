@@ -1,0 +1,14 @@
+graph config:TestTheatre {
+
+  config:IP_SparqlQueries a elmo:InformationProduct;
+
+    elmo:query '''
+      select distinct ?graph
+      where {
+        graph ?graph {
+          ?s ?p ?o
+        }
+      }
+    ''';
+  .
+}

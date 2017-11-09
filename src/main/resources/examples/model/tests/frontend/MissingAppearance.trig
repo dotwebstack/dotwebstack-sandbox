@@ -1,0 +1,9 @@
+graph config:TestStage {
+
+  config:MissingAppearance  a  elmo:Representation;
+    elmo:url-pattern  "/missing-appearance$";
+    elmo:endpoint <http://doesntexists/sparql>;
+    elmo:informationProduct config:IP_MissingAppearance
+  .
+  
+}

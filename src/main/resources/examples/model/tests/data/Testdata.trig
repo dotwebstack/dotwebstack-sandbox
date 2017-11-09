@@ -1,0 +1,263 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix testo: <http://localhost:8080/def/test#>.
+@prefix story: <http://localhost:8080/id/user-story/>.
+@prefix storystatus: <http://localhost:8080/id/status/>.
+@prefix lotro: <http://localhost:8080/def/lotr#>.
+@prefix lotrs: <http://localhost:8080/def/lotr/>.
+@prefix lotrc: <http://localhost:8080/id/character/>.
+@prefix lotrg: <http://localhost:8080/id/group/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dbpedia: <http://dbpedia.org/resource/>.
+@prefix dbp: <http://dbpedia.org/property/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix shacl: <http://www.w3.org/ns/shacl#>.
+
+#
+# Scrumboard testdata
+#
+testo:UserStory a owl:Class;
+	rdfs:label "user story";
+.
+testo:status a rdf:Property;
+	rdfs:label "status";
+.
+testo:prevStatus a rdf:Property;
+	rdfs:label "previous status"@en;
+	rdfs:label "vorige status"@nl;
+.
+
+story:item1 a testo:UserStory;
+	rdfs:label "Item 1";
+	testo:status storystatus:todo;
+	testo:prevStatus storystatus:backlog;
+.
+
+storystatus:backlog a testo:Status;
+	rdfs:label "Backlog";
+	geo:geometry "CIRCLE(120 -20,4)";
+.
+storystatus:todo a testo:Status;
+	rdfs:label "To do";
+	geo:geometry "CIRCLE(200 -20,4)";
+.
+
+#
+#DBPedia testdata
+#
+testo:capitalCity a rdf:Property;
+	rdfs:label "capital city"@en;
+	rdfs:label "hoofdstad"@nl;
+	rdfs:comment "De hoofdstad van een land"@nl;
+.
+
+dbpedia:Amersfoort a dbo:City;
+	rdfs:label "Amersfoort";
+	dbo:isPartOf <http://dbpedia.org/resource/Utrecht_(province)>;
+	dbo:abstract '''Amersfoort is een stad en gemeente in het oosten van de Nederlandse provincie Utrecht.
+Het is in bevolkingsaantal de tweede stad van de provincie Utrecht en de veertiende van Nederland. Amersfoort is een groeistad en vervult economisch een regiofunctie met een sterk gegroeid bedrijfsleven, heeft een van de grootste spoorwegknooppunten van Nederland en is een belangrijke garnizoensstad. De binnenstad bezit een middeleeuws karakter met grachten'''@nl;
+	dbp:east dbpedia:Amsterdam;
+	dbo:population 153773;
+	dbo:populationAsOf "2016-04-01"^^xsd:date;
+	dbo:altitude 2.9;
+	testo:capitalCity false;
+	testo:districtNames ("stadskern" "soesterkwartier" "koppel" "kruiskamp" "schothorst" "liendert" "rustenburg" "schuilenburg" "randenbroek" "dorrestein" "leusderkwartier" "bergkwartier" "zielhorst" "kattenbroek" "nieuwland" "vathorst" "vermeerkwartier");
+.
+dbpedia:Amsterdam a dbo:City;
+	rdfs:label "Amsterdam";
+	testo:capitalCity true;
+.
+
+dbpedia:Utrecht a dbo:City;
+	rdfs:label "Utrecht";
+	testo:capitalCity false;
+	dbo:isPartOf <http://dbpedia.org/resource/Utrecht_(province)>;
+.
+
+<http://dbpedia.org/resource/Utrecht_(province)> a dbo:Location;
+	rdfs:label "Utrecht (province)"@en;
+	rdfs:label "Utrecht (provincie)"@nl;
+	dbo:abstract "Utrecht (Geluidsfragment ) is met een oppervlakte van 1385 km\u00B2 de kleinste provincie van Nederland. De provincie telt ca. 1.268.489 inwoners (augustus 2015).De dichtbevolkte en centraal gelegen provincie wordt algemeen tot de Randstad gerekend. De hoofdstad en grootste stad is Utrecht. Deze stad was het centrum van het bisdom of Sticht Utrecht dat de voorloper was van de huidige provincie. De op een na grootste stad van de provincie is Amersfoort, gevolgd door Veenendaal, Zeist en Nieuwegein."@nl;
+	testo:largestCities (dbpedia:Amersfoort dbpedia:Utrecht)
+.
+
+#
+#LOTR testdata
+#
+<http://localhost:8080/def/lotr#> a owl:Ontology;
+	rdfs:label "The LOTR Vocabulary";
+	rdfs:comment '''This "example" vocabulary is used to demonstrate the vocabulary appearance.
+It is also used as linked data to the regular data in some other vocabularies.''';
+.
+
+foaf:Group rdf:type owl:Class;
+	rdfs:label "Group"
+.
+
+lotro:Person rdf:type owl:Class;
+	rdfs:label "Person"@en, "Persoon"@nl;
+.
+lotrs:Person a shacl:Shape;
+	rdfs:label "Person shape";
+	shacl:name "PERS";
+	shacl:targetClass lotro:Person;
+	shacl:property lotrs:Person_label;
+	shacl:property lotrs:Person_member;
+	shacl:property lotrs:Person_founded;
+.
+lotrs:Person_label a shacl:PropertyConstraint;
+	shacl:predicate rdfs:label;
+	shacl:minCount 1;
+	shacl:maxCount 1;
+	shacl:pattern "^[a-zA-Z0-9\\s]$"
+.
+lotrs:Person_member a shacl:PropertyConstraint;
+	shacl:path foaf:member;
+	shacl:class foaf:Group;
+.
+lotrs:Person_founded a shacl:PropertyConstraint;
+	shacl:predicate lotro:founded;
+	shacl:class foaf:Group;
+.
+
+lotro:Hobbit rdf:type owl:Class;
+	rdfs:label "Hobbit";
+	rdfs:subClassOf lotro:Mortal;
+.
+
+lotro:Wizard rdf:type owl:Class;
+	rdfs:label "Wizard";
+.
+lotro:Dwarf rdf:type owl:Class;
+	rdfs:label "Dwarf";
+	rdfs:subClassOf lotro:Mortal;
+.
+lotro:Elf rdf:type owl:Class;
+	rdfs:label "Elf";
+.
+lotro:Half-elf rdf:type owl:Class;
+	rdfs:label "Half-elf";
+	rdfs:subClassOf lotro:Elf;
+	rdfs:subClassOf lotro:Human;
+.
+lotro:Mortal rdf:type owl:Class;
+	rdfs:label "Mortal";
+.
+lotro:Human rdf:type owl:Class;
+	rdfs:label "Human";
+	rdfs:subClassOf lotro:Mortal;
+.
+lotro:Elf rdf:type owl:Class;
+	rdfs:label "Elf";
+.
+
+lotro:founded rdf:type owl:ObjectProperty;
+	rdfs:label "founded";
+.
+
+lotrc:Bilbo rdf:type lotro:Hobbit;
+	rdfs:label "Bilbo";
+	foaf:knows lotrc:Gandalf;
+.
+lotrc:Frodo rdf:type lotro:Hobbit;
+	rdfs:label "Frodo";
+	foaf:member lotrg:FellowshipOfTheRing;
+.
+lotrc:Sam rdf:type lotro:Hobbit;
+	rdfs:label "Sam";
+	foaf:member lotrg:FellowshipOfTheRing;
+.
+lotrc:Merry rdf:type lotro:Hobbit;
+	rdfs:label "Merry";
+	foaf:member lotrg:FellowshipOfTheRing;
+.
+lotrc:Pippin rdf:type lotro:Hobbit;
+	rdfs:label "Pippin";
+	foaf:member lotrg:FellowshipOfTheRing;
+.
+lotrc:Gandalf rdf:type lotro:Wizard;
+	rdfs:label "Gandalf";
+	foaf:member lotrg:FellowshipOfTheRing;
+	foaf:knows lotrc:Thorin;
+.
+lotrc:Aragorn rdf:type lotro:Human;
+	rdfs:label "Aragorn";
+	foaf:member lotrg:FellowshipOfTheRing;
+.
+lotrc:Boromir rdf:type lotro:Human;
+	rdfs:label "Boromir";
+	foaf:member lotrg:FellowshipOfTheRing;
+.
+lotrc:Gimli rdf:type lotro:Dwarf;
+	rdfs:label "Gimli";
+	foaf:member lotrg:FellowshipOfTheRing;
+.
+lotrc:Thorin rdf:type lotro:Dwarf;
+	rdfs:label "Thorin";
+	foaf:member lotrg:ThorinsCompany;
+	lotro:founded lotrg:ThorinsCompany;
+	foaf:knows lotrc:Gandalf;
+.
+lotrc:Fili rdf:type lotro:Dwarf;
+	rdfs:label "Fili";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Kili rdf:type lotro:Dwarf;
+	rdfs:label "Kili";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Balin rdf:type lotro:Dwarf;
+	rdfs:label "Balin";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Dwalin rdf:type lotro:Dwarf;
+	rdfs:label "Dwalin";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Oin rdf:type lotro:Dwarf;
+	rdfs:label "Oin";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Gloin rdf:type lotro:Dwarf;
+	rdfs:label "Gloin";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Dori rdf:type lotro:Dwarf;
+	rdfs:label "Dori";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Nori rdf:type lotro:Dwarf;
+	rdfs:label "Nori";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Ori rdf:type lotro:Dwarf;
+	rdfs:label "Ori";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Bifur rdf:type lotro:Dwarf;
+	rdfs:label "Bifur";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Bofur rdf:type lotro:Dwarf;
+	rdfs:label "Bofur";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Bombur rdf:type lotro:Dwarf;
+	rdfs:label "Bombur";
+	foaf:member lotrg:ThorinsCompany;
+.
+lotrc:Eowyn rdf:type lotro:Human;
+	rdfs:label "Éowyn";
+.
+lotrc:Theoden rdf:type lotro:Human;
+	rdfs:label "Théoden";
+.
+lotrg:FellowshipOfTheRing rdf:type foaf:Group;
+	rdfs:label "Fellowship of the ring";
+.
+lotrg:ThorinsCompany rdf:type foaf:Group;
+	rdfs:label "Thorin's company";
+.
