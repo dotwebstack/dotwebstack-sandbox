@@ -252,10 +252,54 @@ paths:
    
   
   
+ #-------------------------------------------------------------------------------------------------------    Formats    --------------------------------------------------------------------    
+ 
+   /query-selectformats:
+          get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_SelectFormatsQuery"
+       responses:
+        200:
+          description: OK          
+
+   /api-selectformats:
+          get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_SelectFormatsQuery"
+       responses:
+        200:
+          description: OK                
+ 
+/query-constructformats:
+get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ConstructFormats_content"
+       responses:
+        200:
+          description: OK      
+          
+/api-constructformats:
+get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_ConstructFormats_content"
+       responses:
+        200:
+          description: OK      
+          
+ #-------------------------------------------------------------------------------------------------------    Formats    --------------------------------------------------------------------    
+
+ /query-formappearanceajax$:
+get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_FormAppearanceAjax"
+       responses:
+        200:
+          description: OK    
+          
+#-------------------------------------------------------------------------------------------------------    FormAppearance    --------------------------------------------------------------------    
+        
   
-  
-  
-  
+/query-formappearance$: 
+get:
+   x-dotwebstack-information-product: "http://localhost:8080/stage#IP_FormAppearance"
+       responses:
+        200:
+          description: OK   
   
   
   

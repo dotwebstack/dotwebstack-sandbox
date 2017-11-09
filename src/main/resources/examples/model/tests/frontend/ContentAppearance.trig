@@ -1,0 +1,14 @@
+graph config:Testconfig {
+
+  config:ContentAppearance a elmo:Representation;
+    elmo:url-pattern "/query/ContentAppearance";
+    elmo:contains config:HeaderAppearance;
+    elmo:contains config:NavbarSearchAppearance;
+    elmo:query config:ContentAppearanceQuery;
+  .
+
+  config:ContentAppearanceQuery a elmo:Query;
+    rdfs:label "Amersfoort";
+    elmo:informationProduct config:IP_ContentAppearanceQuery;
+  .
+}

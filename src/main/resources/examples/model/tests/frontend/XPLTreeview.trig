@@ -7,6 +7,6 @@ graph config:Testconfig {
     elmo:contains config:NavbarSearchAppearance;
     elmo:contains config:TreeXPL;
     elmo:appearance elmo:TreeAppearance;
-    elmo:informationProduct config:IP_XPLTreeview
+    elmo:informationProduct config:IP_XPLTreeview;
   .
 }
