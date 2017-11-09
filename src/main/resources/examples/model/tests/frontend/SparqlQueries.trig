@@ -1,7 +1,0 @@
-graph config:TestStage {
-  config:QueryAllGraphs a elmo:Query;
-    rdfs:label "All named graphs";
-    
-    elmo:informationProduct config:IP_SparqlQueries
-.
-}
