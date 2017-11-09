@@ -33,7 +33,7 @@ GRAPH config:SandboxTheatre {
   dbeerpedia:id2doc a elmo:Redirection;
     elmo:stage dbeerpedia:Stage;
   	elmo:urlPattern "^\\/breweries\\/(.+)$";
-  	elmo:redirectionTemplate "\\/$1-breweries"
+  	elmo:targetUrl "\\/$1-breweries"
   .
 
   dbeerpedia:TupleBreweries a elmo:InformationProduct;
