@@ -2,7 +2,7 @@ swagger: 2.0
 info:
   title: DBeerPedia API
   version: 1.0
-host: localhost
+host: %{dotwebstack.config.host}
 basePath: /dbp/api/v1
 produces:
   - application/json
@@ -23,7 +23,14 @@ paths:
                   format: string
   /breweries/{id}:
     get:
-      x-dotwebstack-information-product: "http://dbeerpedia.org#TupleBreweries"
+      x-dotwebstack-information-product: "http://dbeerpedia.org#TupleBrewery"
+      parameters:
+      - name: id
+        in: path
+        description: Identifier
+        required: true
+        type: string
+        x-dotwebstack-parameter: "http://dbeerpedia.org#IdFilter"
       responses:
         200:
           description: OK
