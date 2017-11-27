@@ -10,7 +10,7 @@ catalogus:MyLocalSparqlBackend a elmo:SparqlBackend;
 
 catalogus:CatalogusTheatre a elmo:Theatre;
   rdfs:label "The catalogus theatre, using all vocabulary statements";
-  dc:title "Catalogus theatre";
+  #dc:title "Catalogus theatre";
 .
 
 
