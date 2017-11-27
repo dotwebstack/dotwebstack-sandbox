@@ -9,6 +9,7 @@ logging.level:
 
 dotwebstack:
   config:
-    resourcePath: file:src/main/resources
     host: localhost
+    resourcePath: file:src/main/resources
+    basePath: /dbp/api/v1
     systemGraph: http://dbeerpedia.org#Theatre
