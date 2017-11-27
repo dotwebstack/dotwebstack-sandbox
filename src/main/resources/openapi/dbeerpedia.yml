@@ -3,7 +3,7 @@ info:
   title: DBeerPedia API
   version: 1.0
 host: %{dotwebstack.config.host}
-basePath: /dbp/api/v1
+basePath: ${dotwebstack.config.basePath}
 produces:
   - application/json
 paths:
