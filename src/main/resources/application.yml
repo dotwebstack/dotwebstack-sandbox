@@ -11,5 +11,5 @@ dotwebstack:
   config:
     host: localhost
     resourcePath: file:src/main/resources
-    systemGraph: http://dotwebstack.org/configuration/SandboxTheatre
     basePath: /dbp/api/v1
+    systemGraph: http://dbeerpedia.org#Theatre
