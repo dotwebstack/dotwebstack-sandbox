@@ -1,0 +1,8 @@
+GRAPH dbeerpedia:Theatre {
+
+  dbpt:Stage a elmo:Stage;
+    elmo:site dbeerpedia:Site;
+    elmo:basePath "/dbpt";
+  .
+
+}
