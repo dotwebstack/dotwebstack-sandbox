@@ -1,8 +1,8 @@
 GRAPH dbeerpedia:Theatre {
 
-  dbpt:SoccerPlayers a elmo:InformationProduct;
+  soccer:Players a elmo:InformationProduct;
     rdfs:label "Soccer players, who are born in a country with more than 10 million inhabitants, who played as goalkeeper for a club that has a stadium with more than 30.000 seats and the club country is different from the birth country";
-    elmo:backend dbpt:Backend;
+    elmo:backend soccer:Backend;
     elmo:resultType elmoresulttype:Tuple;
     elmo:query '''
       PREFIX owl: <http://www.w3.org/2002/07/owl#>
