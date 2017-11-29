@@ -7,7 +7,7 @@ basePath: /soccer/api/v1
 produces:
   - application/json
 paths:
-  /soccerplayers:
+  /players:
     get:
       x-dotwebstack-information-product: "http://soccer.org#Players"
       responses:
