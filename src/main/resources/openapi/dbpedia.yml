@@ -10,6 +10,12 @@ paths:
   /players:
     get:
       x-dotwebstack-information-product: "http://soccer.org#Players"
+      parameters:
+        - name: minimumCapacity
+          in: query
+          required: false
+          type: integer
+          x-dotwebstack-parameter: "http://soccer.org#MinimumCapacityFilter"
       responses:
         200:
           description: OK
@@ -33,4 +39,3 @@ paths:
                 stadiumcapacity:
                   type: integer
                   format: integer
-                  
