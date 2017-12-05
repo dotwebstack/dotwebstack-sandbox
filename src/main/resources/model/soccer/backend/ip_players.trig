@@ -4,6 +4,7 @@ GRAPH dbeerpedia:Theatre {
     rdfs:label "Soccer players, who are born in a country with more than 10 million inhabitants, who played as goalkeeper for a club that has a stadium with more than 30.000 seats and the club country is different from the birth country";
     elmo:backend dbpedia:Backend;
     elmo:resultType elmo-resulttype:Tuple;
+    elmo:optionalParameter soccer:MinimumCapacityFilter;
     elmo:query '''
       PREFIX owl: <http://www.w3.org/2002/07/owl#>
       PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -31,11 +32,15 @@ GRAPH dbeerpedia:Theatre {
         .
         ?countryOfTeam a dbo:Country .
         FILTER( ?countryOfTeam != ?countryOfBirth )
-        FILTER( ?stadiumcapacity > 30000 )
+        FILTER( ?stadiumcapacity > IF(isLiteral(?minimumCapacity), xsd:integer(?minimumCapacity), 30000) )
         FILTER( ?population > 10000000 )
       }
       ORDER BY ?soccerplayer
     ''';
+  .
+
+  soccer:MinimumCapacityFilter a elmo:TermFilter;
+    elmo:name "minimumCapacity";
   .
 
 }
