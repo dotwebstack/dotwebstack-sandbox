@@ -1,0 +1,36 @@
+swagger: 2.0
+info:
+  title: DBpedia Theatre API
+  version: 1.0
+host: localhost
+basePath: /soccer/api/v1
+produces:
+  - application/json
+paths:
+  /players:
+    get:
+      x-dotwebstack-information-product: "http://soccer.org#Players"
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                soccerplayer:
+                  type: string
+                  format: string
+                countryOfBirth:
+                  type: string
+                  format: string
+                team:
+                  type: string
+                  format: string
+                countryOfTeam:
+                  type: string
+                  format: string
+                stadiumcapacity:
+                  type: integer
+                  format: integer
+                  

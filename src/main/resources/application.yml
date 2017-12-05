@@ -12,3 +12,4 @@ dotwebstack:
     resourcePath: file:src/main/resources
     host: localhost
     systemGraph: http://dbeerpedia.org#Theatre
+    
