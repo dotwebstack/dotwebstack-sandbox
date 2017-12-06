@@ -1,0 +1,44 @@
+GRAPH dbeerpedia:Theatre {
+
+  config:Stage a elmo:Stage;
+    elmo:site dbeerpedia:Site;
+    elmo:basePath "";
+  .
+  config:Search a elmo:Representation;
+    elmo:urlPattern "/search";
+    elmo:stage config:Stage;
+    elmo:informationProduct config:SearchData;
+  .
+  config:SearchInPath a elmo:Representation;
+    elmo:urlPattern "/search/{term}";
+    elmo:parameterMapper config:SubjectFromUrl;
+    elmo:stage config:Stage;
+    elmo:informationProduct config:SearchData;
+  .
+  config:SubjectFromUrl a elmo:UriParameterMapper;
+    elmo:source http:requestURI;
+    elmo:pattern "http://{domain}/search/{term}";
+    elmo:template "{term}";
+    elmo:target config:TermParameter;
+  .
+  config:TermParameter a elmo:TermFilter;
+    elmo:name "term";
+  .
+  config:SearchData a elmo:InformationProduct;
+    elmo:backend config:LOVBackend;
+    elmo:requiredParameter config:TermParameter;
+    elmo:resultType elmo-rt:Tuple;
+    elmo:query """
+      PREFIX vann: <http://purl.org/vocab/vann/>
+      SELECT *
+      WHERE {
+        ?vocabURI vann:preferredNamespacePrefix ?term.
+      }
+      LIMIT 10
+    """;
+  .
+  config:LOVBackend a elmo:SparqlBackend;
+    elmo:endpoint "http://lov.okfn.org/dataset/lov/sparql"^^xsd:anyURI;
+  .
+
+}
