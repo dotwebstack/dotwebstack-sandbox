@@ -6,7 +6,7 @@
 
   <groupId>org.dotwebstack.sandbox</groupId>
   <artifactId>dotwebstack-sandbox</artifactId>
-  <version>0.0.10-SNAPSHOT</version>
+  <version>0.0.12-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>dotwebstack-sandbox</name>
@@ -23,7 +23,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <dotwebstack.framework.version>0.0.10-SNAPSHOT</dotwebstack.framework.version>
+    <dotwebstack.framework.version>0.0.12-SNAPSHOT</dotwebstack.framework.version>
     <mockito.version>2.12.0</mockito.version>
   </properties>
 
