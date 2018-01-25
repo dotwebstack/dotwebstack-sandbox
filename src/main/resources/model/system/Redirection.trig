@@ -1,0 +1,26 @@
+GRAPH dbeerpedia:Theatre {
+  # We state that any URI containg /id/ should be considered as a non-information resource. 303 redirection is required.
+  # Redirect URL's that contain /id/ to URL's that have this replaced by /doc/
+
+  # Old syntax
+  # Double escaping of \\ is needed, because turtle uses a backslash as escape character as well.
+  dbeerpedia:NonInformationResourceRedirectionOLD a elmo:Redirection;
+    elmo:stage dbeerpedia:Stage;
+    elmo:urlPattern "^(.+)\\/id\\/(.+)$";
+    elmo:targetUrl "$1\\/doc\\/$2";
+  .
+  
+  # New syntax (using JAX-RS format)
+  # Not yet supported
+  #dbeerpedia:NonInformationResourceRedirection a elmo:Redirection;
+  #  elmo:stage dbeerpedia:Stage;
+  #  elmo:urlPattern "{path}/id/{reference}";
+  #  elmo:targetUrl "{path}/doc/{reference}";
+  #.
+
+  dbeerpedia:id2doc a elmo:Redirection;
+      elmo:stage dbeerpedia:Stage;
+  		elmo:urlPattern "^\\/id\\/(.+)$";
+  		elmo:targetUrl "\\/doc\\/$1"
+  .
+}

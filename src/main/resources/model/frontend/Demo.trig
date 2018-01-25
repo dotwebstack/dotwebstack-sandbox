@@ -1,0 +1,169 @@
+GRAPH dbeerpedia:Theatre {
+
+# ==========================
+#
+# Menu
+#
+# ==========================
+
+  dbeerpedia:Menu a elmo:Representation;
+    elmo:stage dbeerpedia:Stage;
+    elmo:informationProduct dbeerpedia:MenuData;
+    elmo:appearance dbeerpedia:MenuAppearance;
+  .
+  dbeerpedia:MenuAppearance a elmo:NavbarSearchAppearance
+  .
+  
+# ==========================
+#
+# Footer
+#
+# ==========================
+
+  dbeerpedia:Footer a elmo:Representation;
+    elmo:stage dbeerpedia:Stage;
+    elmo:informationProduct dbeerpedia:FooterData;
+    elmo:appearance dbeerpedia:FooterAppearance;
+  .
+  dbeerpedia:FooterAppearance a elmo:FooterAppearance;
+  .
+
+# ==========================
+#
+# Format index
+#
+# ==========================
+
+  dbeerpedia:FormatIndex a elmo:Representation;
+    elmo:stage dbeerpedia:Stage;
+    elmo:informationProduct dbeerpedia:FormatIndexData;
+    elmo:appearance dbeerpedia:FormatIndexAppearance;
+  .
+  dbeerpedia:FormatIndexAppearance a elmo:IndexAppearance;
+    elmo:index "1"
+  .
+
+# ==========================
+#
+# Homepage
+#
+# ==========================
+
+  dbeerpedia:Homepage a elmo:Representation;
+    elmo:urlPattern "";
+    elmo:stage dbeerpedia:Stage;
+    elmo:informationProduct dbeerpedia:HomepageData;
+    elmo:appearance dbeerpedia:HomepageAppearance;
+    elmo:contains dbeerpedia:Menu;
+    elmo:contains dbeerpedia:Footer;
+  .
+  dbeerpedia:HomepageAppearance a elmo:HtmlAppearance;
+  .
+
+# ==========================
+#
+# Generic resource (assuming dbpedia)
+#
+# ==========================
+
+  dbeerpedia:DBPediaResource a elmo:Representation;
+    elmo:urlPattern "/resource";
+    elmo:stage dbeerpedia:Stage;
+    elmo:informationProduct dbeerpedia:DBPediaResourceData;
+  .
+
+# ==========================
+#
+# Amersfoort (with appearance, CONSTRUCT = ResourceAppearance)
+#
+# ==========================
+
+  dbeerpedia:Amersfoort a elmo:Representation;
+    elmo:urlPattern "/demo/amersfoort";
+    elmo:stage dbeerpedia:Stage;
+    elmo:contains dbeerpedia:Menu;
+    elmo:contains dbeerpedia:FormatIndex;
+    elmo:contains dbeerpedia:Glossary;
+    elmo:appearance dbeerpedia:AmersfoortAppearance;
+    elmo:informationProduct dbeerpedia:AmersfoortData
+  .
+  dbeerpedia:AmersfoortAppearance a elmo:Appearance;
+    elmo:fragment [
+      elmo:appliesTo dbo:thumbnail;
+      rdfs:label "Image"@en;
+      elmo:index "1";
+      elmo:appearance elmo:ImageAppearance;
+    ];
+    elmo:fragment [
+      elmo:appliesTo rdfs:label;
+      rdfs:label "City name"@en;
+      elmo:index "2";
+    ];
+    elmo:fragment [
+      elmo:appliesTo dbo:abstract;
+      xhtml:glossary dbeerpedia:Glossary;
+      elmo:index "3";
+    ];
+    elmo:fragment [
+      elmo:appliesTo rdf:type;
+      rdfs:label "Resource type"@en;
+      xhtml:link "/demo/resource";
+      elmo:index "4";
+    ];
+  .
+  
+  dbeerpedia:Glossary a elmo:Representation;
+    elmo:stage dbeerpedia:Stage;
+    elmo:appearance dbeerpedia:GlossaryAppearance;
+    elmo:informationProduct dbeerpedia:GlossaryData;
+  .
+  dbeerpedia:GlossaryAppearance a elmo:HiddenAppearance;
+  .
+ 
+# ==========================
+#
+# Search (without appearance, SELECT = TableAppearance)
+#
+# ==========================
+
+  dbeerpedia:Search a elmo:Representation;
+    elmo:urlPattern "/search";
+    elmo:stage dbeerpedia:Stage;
+    elmo:contains dbeerpedia:Menu;
+    elmo:informationProduct dbeerpedia:SearchData;
+  .
+  dbeerpedia:SearchInPath a elmo:Representation;
+    elmo:urlPattern "/search/{term}";
+    elmo:parameterMapper dbeerpedia:TermFromUrl;
+    elmo:stage dbeerpedia:Stage;
+    elmo:contains dbeerpedia:Menu;
+    elmo:informationProduct dbeerpedia:SearchData;
+  .
+
+# ==========================
+#
+# Places (menu, tree, table, footer)
+#
+# ==========================
+
+  dbeerpedia:Places a elmo:Representation;
+    elmo:urlPattern "/demo/places";
+    elmo:stage dbeerpedia:Stage;
+    elmo:contains dbeerpedia:PlacesTree;
+    elmo:contains dbeerpedia:Menu;
+    elmo:contains dbeerpedia:Footer;
+    elmo:informationProduct dbeerpedia:PlacesData;
+  .
+  
+  #
+  # Places tree
+  #
+  dbeerpedia:PlacesTree a elmo:Representation;
+    elmo:stage dbeerpedia:Stage;
+    elmo:appearance dbeerpedia:PlacesTreeAppearance;
+    elmo:informationProduct dbeerpedia:PlacesTreeData
+  .
+  dbeerpedia:PlacesTreeAppearance a elmo:TreeAppearance
+  .
+  
+}

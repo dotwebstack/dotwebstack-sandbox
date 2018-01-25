@@ -1,0 +1,14 @@
+GRAPH dbeerpedia:Theatre {
+	# Information product, retrieve any data for this subject
+#	dbeerpedia:SubjectData a elmo:InformationProduct;
+#		elmo:query """
+#			construct {
+#				<${subject}> ?p ?o
+#			}
+#			where {
+#				<${subject}> ?p ?o
+#			}
+#		"""
+#	.
+
+}

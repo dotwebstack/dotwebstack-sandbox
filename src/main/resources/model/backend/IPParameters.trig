@@ -1,0 +1,78 @@
+GRAPH dbeerpedia:Theatre {
+	# NB: The use of ?SUBJECT (a bounded variable) is recommended above the use of <${SUBJECT}> (a generic template variable)
+  #     At this moment, ?SUBJECT only works for string literals, so cannot be used in this case
+	dbeerpedia:SubjectData a elmo:InformationProduct;
+		elmo:requiredParameter dbeerpedia:SubjectParameter;
+		elmo:backend dbeerpedia:Backend;
+		elmo:query """
+			CONSTRUCT {
+				<${SUBJECT}> ?p ?o
+			}
+			WHERE {
+				<${SUBJECT}> ?p ?o
+			}
+		"""
+	.
+  
+  # The recommended way would be to use a bounded variable. The query might be better understandable if it is visible that
+  # a variable is bounded up front. You might want to use UPPERCASE for these variables.
+	dbeerpedia:SubjectDataBounded a elmo:InformationProduct;
+		elmo:requiredParameter dbeerpedia:SubjectParameter;
+		elmo:backend dbeerpedia:Backend;
+		elmo:query """
+			CONSTRUCT {
+				?SUBJECT ?p ?o
+			}
+			WHERE {
+				?SUBJECT ?p ?o
+			}
+		"""
+	.
+	
+  # Currently not supported yet
+	dbeerpedia:PagedFriendsOfSubject a elmo:InformationProduct;
+		elmo:requiredParameter dbeerpedia:SubjectParameter;
+		#elmo:requiredParameter dbeerpedia:PaginatorParameter;
+		elmo:backend dbeerpedia:Backend;
+		elmo:query """
+			SELECT ?friend ?friend_label
+			WHERE {
+				${subject} foaf:knows ?friend
+				OPTIONAL {?friend rdfs:label ?friend_label}
+			}
+			OFFSET ${paginator.pageSize*(paginator.page-1)}
+			LIMIT ${paginator.pageSize}
+		"""
+	.
+	
+	dbeerpedia:SimpleSearchResult a elmo:InformationProduct;
+		elmo:requiredParameter dbeerpedia:TermParameter;
+		elmo:backend dbeerpedia:Backend;
+		elmo:query """
+			SELECT ?resource ?resource_label
+			WHERE {
+				?resource rdfs:label ?resource_label.
+				FILTER (regex(?resource_label,?TERM,"i"))
+			}
+			LIMIT 100
+		"""
+	.
+	
+	dbeerpedia:SearchResult a elmo:InformationProduct;
+		elmo:requiredParameter dbeerpedia:TermsParameter;
+		elmo:backend dbeerpedia:Backend;
+		elmo:query """
+			SELECT ?resource ?resource_label
+			WHERE {
+				?resource rdfs:label ?resource_label.
+				FILTER (1=0
+				<#list terms as term>
+					|| regex(?resource_label,"${term}","i")
+				</#list>
+				)
+			}
+			LIMIT 100
+		"""
+	.
+	
+}

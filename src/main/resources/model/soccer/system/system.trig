@@ -1,8 +1,0 @@
-GRAPH dbeerpedia:Theatre {
-
-  soccer:Stage a elmo:Stage;
-    elmo:site dbeerpedia:Site;
-    elmo:basePath "/soccer";
-  .
-
-}

@@ -1,5 +1,0 @@
-GRAPH dbeerpedia:Theatre {
-  dbpedia:Backend a elmo:SparqlBackend;
-    elmo:endpoint "http://dbpedia.org/sparql"^^xsd:anyURI;
-  .
-}

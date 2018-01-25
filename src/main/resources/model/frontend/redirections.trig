@@ -1,7 +1,0 @@
-GRAPH dbeerpedia:Theatre {
-  dbeerpedia:id2doc a elmo:Redirection;
-      elmo:stage dbeerpedia:Stage;
-  		elmo:urlPattern "^\\/id\\/(.+)$";
-  		elmo:targetUrl "\\/doc\\/$1"
-  .
-}

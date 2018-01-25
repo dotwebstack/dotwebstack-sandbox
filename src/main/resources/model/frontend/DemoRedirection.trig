@@ -1,0 +1,17 @@
+GRAPH dbeerpedia:Theatre {
+
+  # A default representation to be used for any dereferenceable URI's. Two separate representations are needed
+  # (A) The representation that matches a /resource path, and uses the ?subject=... query to map to the dbeerpedia:SubjectParameter
+  dbeerpedia:ResourceRepresentation a elmo:Representation;
+    elmo:urlPattern "/resource";
+    # No mapper needed in this case, because query parameters are mapped by default to the corresponding parameters.
+    elmo:informationProduct dbeerpedia:ResourceInformationProduct
+  .
+  # (B) The representation that matches a /doc/ path, and uses the original URL to map to the dbeerpedia:SubjectParameter
+  dbeerpedia:ResourceRepresentation a elmo:Representation;
+    elmo:urlPattern "/doc/{reference}";
+    elmo:parameterMapper dbeerpedia:SubjectFromUrl;
+    elmo:informationProduct dbeerpedia:ResourceInformationProduct
+  .
+
+}

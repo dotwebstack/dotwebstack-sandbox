@@ -1,0 +1,122 @@
+#Backend (only information products, theatre system config has been left out)
+GRAPH dbeerpedia:Theatre {
+	#
+	# Example of a URI parameter (${SUBJECT} or ?SUBJECT)
+	#
+  
+  # You should define the SubjectParameter only once, probably as part of the System graph
+  dbeerpedia:SubjectParameter a elmo:TermFilter;
+    elmo:name "SUBJECT";
+    elmo:shape [
+      sh:datatype xsd:string;
+    ]
+  .
+  
+  dbeerpedia:SubjectFromUrl a elmo:UriParameterMapper;
+      elmo:source http:requestURI;
+      elmo:pattern "http://{domain}/dbp/ld/v1/doc/{reference}";
+      elmo:template "http://{domain}/dbp/ld/v1/id/{reference}";
+      elmo:target dbeerpedia:SubjectParameter;
+  .
+
+	#
+	# Example of a composite parameter (not predefined, although we might introduce a predefined paginator in the future!)
+  # (Currently, this example is not supported)
+	#
+	dbeerpedia:PaginatorParameter a elmo:Parameter;
+		elmo:name "paginator";
+		elmo:shape [
+			sh:property [
+				sh:name "pageSize";
+				sh:maxCount 1;
+				sh:defaultValue 20;
+				sh:datatype xsd:integer;
+			];
+			sh:property [
+				sh:name "page";
+				sh:maxCount 1;
+				sh:defaultValue 1;
+				sh:datatype xsd:integer;
+			]
+		]
+	.
+	
+	#
+	# Example of a simple string parameter
+	#
+	dbeerpedia:TermParameter a elmo:TermFilter;
+		elmo:name "TERM";
+		elmo:shape [
+			sh:datatype xsd:string;
+			sh:minLength 2;
+		]
+	.
+  
+  dbeerpedia:TermFromUrl a elmo:UriParameterMapper;
+    elmo:source http:requestURI;
+    elmo:pattern "http://{domain}/search/{term}";
+    elmo:template "{term}";
+    elmo:target dbeerpedia:TermParameter;
+  .
+	
+	#
+	# Example of a list-of-strings parameter
+  # (Currently not supported)
+	#
+	dbeerpedia:TermsParameter a elmo:TermFilter;
+		elmo:name "term";
+		elmo:shape [
+			sh:datatype xsd:string;
+			#sh:minCount 1;
+			#sh:maxCount 10; #Maximum of 10 terms kan be used
+		];
+	.
+
+  dbeerpedia:IdFilter a elmo:TermFilter;
+    elmo:name "id";
+    elmo:shape [
+      sh:datatype xsd:string;
+      sh:minLength 2;
+    ];
+  .
+  
+  dbeerpedia:FteParam a elmo:TermFilter;
+    elmo:name "fte";
+    elmo:shape [
+    	sh:datatype xsd:string;
+    ];
+  .
+  
+  dbeerpedia:MinimumCapacityFilter a elmo:TermFilter;
+    elmo:name "minimumCapacity";
+    elmo:shape [
+    	sh:datatype xsd:string;
+    ];
+  .
+  
+    # --- Informal from here, as examples how we could extend the ParameterMapper structure ---
+  # Other more specific ParameterMappers might also exist
+#  dbeerpedia:SubjectFromUrl a elmo:RegexParameterMapper;
+#    elmo:source http:requestURI;
+#    elmo:pattern "^(.+)\\/doc\\/(.+)$";
+#    elmo:template "$1\\/id\\/$2";
+#    elmo:target dbeerpedia:SubjectParameter;
+#  .
+  # Or even something completely different
+  dbeerpedia:HashFromBody a elmo:HashParameterMapper;
+    elmo:source http:body;
+    elmo:algorithm "base64";
+    elmo:target dbeerpedia:HashOfBody;
+  .
+  # Chaining
+  # The elmo:source of chained ParameterMappers is ignored, and may be excluded
+  dbeerpedia:ChainedFromUrl a elmo:UriParameterMapper;
+    elmo:source http:requestURI;
+    elmo:pattern "{path}/doc/{reference}";
+    elmo:template "{path}/id/{reference}";
+    elmo:target dbeerpedia:SubjectParameter;
+  .
+  # --- Informal till here ---
+
+	
+}
