@@ -3,7 +3,7 @@ GRAPH dbeerpedia:Theatre {
   soccer:ViewPlayers a elmo:Representation;
     # Bereikbaarheid
     elmo:stage soccer:Stage;
-    elmo:urlPattern "/players";
+    elmo:pathPattern "/players";
     
     # Beschrijving representatie
     elmo:appearance soccer:ViewPlayersAppearance;
