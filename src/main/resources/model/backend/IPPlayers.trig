@@ -39,4 +39,14 @@ GRAPH dbeerpedia:Theatre {
     ''';
   .
 
+<<<<<<< HEAD:src/main/resources/model/backend/IPPlayers.trig
+=======
+  soccer:MinimumCapacityFilter a elmo:TermParameter;
+    elmo:name "minimumCapacity";
+    elmo:shape [
+      sh:datatype xsd:string;
+    ];
+  .
+
+>>>>>>> master:src/main/resources/model/soccer/backend/ip_players.trig
 }

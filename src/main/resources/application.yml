@@ -8,6 +8,7 @@ spring:
 
 logging.level:
   org.dotwebstack.framework: DEBUG
+  org.springframework.boot.autoconfigure.logging: INFO
 
 dotwebstack:
   config:
