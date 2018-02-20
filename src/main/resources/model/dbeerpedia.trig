@@ -5,6 +5,11 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
 
 GRAPH dbeerpedia:Theatre {
+  dbeerpedia:Theatre a elmo:Theatre;
+    rdfs:label "Theatre";
+    dc:title "Theatre";
+  .
+
   dbeerpedia:Site a elmo:Site;
     elmo:domain "%{dotwebstack.config.host}";
   .
@@ -12,10 +17,6 @@ GRAPH dbeerpedia:Theatre {
   dbeerpedia:Stage a elmo:Stage;
     elmo:site dbeerpedia:Site;
     elmo:basePath "/dbp/ld/v1";
-  .
-
-  dbeerpedia:Theatre a elmo:Theatre;
-    rdfs:label "Theatre"
   .
 
   dbeerpedia:BeerLayout a elmo:Layout;
