@@ -1,0 +1,13 @@
+GRAPH dbeerpedia:Theatre {
+  dbeerpedia:Backend a elmo:SparqlBackend;
+    elmo:endpoint "http://localhost:8900/sparql"^^xsd:anyURI;
+  .
+  
+  dbeerpedia:DBPediaBackend a elmo:SparqlBackend;
+    elmo:endpoint "http://dbpedia.org/sparql"^^xsd:anyURI;
+  .
+  
+  dbeerpedia:LOVBackend a elmo:SparqlBackend;
+    elmo:endpoint "http://lov.okfn.org/dataset/lov/sparql"^^xsd:anyURI;
+  .
+}

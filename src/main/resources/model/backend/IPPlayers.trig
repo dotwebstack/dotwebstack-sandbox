@@ -1,10 +1,10 @@
 GRAPH dbeerpedia:Theatre {
 
-  soccer:Players a elmo:InformationProduct;
+  dbeerpedia:Players a elmo:InformationProduct;
     rdfs:label "Soccer players, who are born in a country with more than 10 million inhabitants, who played as goalkeeper for a club that has a stadium with more than 30.000 seats and the club country is different from the birth country";
-    elmo:backend dbpedia:Backend;
+    elmo:backend dbeerpedia:DBPediaBackend;
     elmo:resultType elmo-resulttype:Tuple;
-    elmo:optionalParameter soccer:MinimumCapacityFilter;
+    elmo:optionalParameter dbeerpedia:MinimumCapacityFilter;
     elmo:query '''
       PREFIX owl: <http://www.w3.org/2002/07/owl#>
       PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -39,6 +39,8 @@ GRAPH dbeerpedia:Theatre {
     ''';
   .
 
+<<<<<<< HEAD:src/main/resources/model/backend/IPPlayers.trig
+=======
   soccer:MinimumCapacityFilter a elmo:TermParameter;
     elmo:name "minimumCapacity";
     elmo:shape [
@@ -46,4 +48,5 @@ GRAPH dbeerpedia:Theatre {
     ];
   .
 
+>>>>>>> master:src/main/resources/model/soccer/backend/ip_players.trig
 }

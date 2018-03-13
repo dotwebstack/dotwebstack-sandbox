@@ -1,10 +1,19 @@
-@prefix dbeerpedia: <http://dbeerpedia.org#> .
-@prefix elmo: <http://dotwebstack.org/def/elmo#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
 GRAPH dbeerpedia:Theatre {
 
+<<<<<<< HEAD:src/main/resources/model/frontend/Dbeerpedia.trig
+  dbeerpedia:TheRepresentation a elmo:Representation;
+    elmo:urlPattern "/subRep";
+    elmo:stage dbeerpedia:Stage;
+    elmo:informationProduct dbeerpedia:TupleBreweries;
+    elmo:contains dbeerpedia:GraphBreweryListRepresentation;
+  .
+
+  dbeerpedia:GraphBreweryListRepresentation a elmo:Representation;
+    elmo:urlPattern "/graph-breweries";
+    elmo:stage dbeerpedia:Stage;
+    elmo:informationProduct dbeerpedia:GraphBreweries;
+  .
+=======
 dbeerpedia:TheRepresentation a elmo:Representation;
   elmo:pathPattern "/subRep";
   elmo:stage dbeerpedia:Stage;
@@ -17,6 +26,7 @@ dbeerpedia:GraphBreweryListRepresentation a elmo:Representation;
   elmo:stage dbeerpedia:Stage;
   elmo:informationProduct dbeerpedia:GraphBreweries;
 .
+>>>>>>> master:src/main/resources/model/frontend/representations.trig
 
   dbeerpedia:TupleBreweryListRepresentation a elmo:Representation;
     elmo:pathPattern "/tuple-breweries";
@@ -31,7 +41,11 @@ dbeerpedia:GraphBreweryListRepresentation a elmo:Representation;
   .
 
   dbeerpedia:ResourceRepresentation a elmo:Representation;
+<<<<<<< HEAD:src/main/resources/model/frontend/Dbeerpedia.trig
+      elmo:urlPattern "/doc/{reference}";
+=======
       elmo:pathPattern "/doc/{reference}";
+>>>>>>> master:src/main/resources/model/frontend/representations.trig
       elmo:stage dbeerpedia:Stage;
       elmo:parameterMapper dbeerpedia:SubjectFromUrl;
       elmo:informationProduct dbeerpedia:ResourceInformationProduct

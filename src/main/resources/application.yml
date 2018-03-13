@@ -3,6 +3,8 @@ spring:
     banner-mode: "off"
   jersey:
     type: filter
+  resources:
+    static-locations: file:src/main/resources/static/,classpath:/static/
 
 logging.level:
   org.dotwebstack.framework: DEBUG
@@ -12,4 +14,5 @@ dotwebstack:
   config:
     resourcePath: file:src/main/resources
     host: localhost
+    linkstrategy: global
     systemGraph: http://dbeerpedia.org#Theatre

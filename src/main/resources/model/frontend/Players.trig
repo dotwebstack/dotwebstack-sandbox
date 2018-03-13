@@ -1,0 +1,15 @@
+GRAPH dbeerpedia:Theatre {
+
+  dbeerpedia:ViewPlayers a elmo:Representation;
+    # Bereikbaarheid
+    elmo:stage dbeerpedia:Stage;
+    elmo:urlPattern "/players";
+    
+    # Beschrijving representatie
+    elmo:appearance dbeerpedia:ViewPlayersAppearance;
+    elmo:informationProduct dbeerpedia:Players
+  .
+  
+  dbeerpedia:ViewPlayersAppearance a elmo:TableAppearance.
+
+}
