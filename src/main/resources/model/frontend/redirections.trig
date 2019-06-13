@@ -1,14 +1,23 @@
 GRAPH dbeerpedia:Theatre {
   dbeerpedia:id2doc a elmo:Redirection;
       elmo:stage dbeerpedia:Stage;
-  		elmo:pathPattern "/id/{resource}";
-  		elmo:redirectTemplate "/doc/{resource}";
+# example data has longer pathpattern
+#  		elmo:pathPattern "/id/{resource}";
+#  		elmo:redirectTemplate "/doc/{resource}";
+  		elmo:pathPattern "/id/{resource}/{id}";
+  		elmo:redirectTemplate "/doc/{resource}/{id}";
   .
 
   dbeerpedia:SubjectFromUrl a elmo:UriParameterMapper;
       elmo:source http:requestURI;
-      elmo:pattern "http://{domain}/dbp/ld/v1/doc/{reference}";
-      elmo:template "http://{domain}/dbp/ld/v1/id/{reference}";
-      elmo:target dbeerpedia:SubjectParameter;
+# 1. example data has longer pathpattern
+# 2. map external link to internal link 
+#     elmo:pattern "http://{domain}/dbp/ld/v1/doc/{reference}";
+#     elmo:template "http://{domain}/dbp/ld/v1/id/{reference}";
+      elmo:pattern "http://{domain}/dbp/ld/v1/doc/{reference}/{id}";
+      elmo:template "http://dbeerpedia.org/id/{reference}/{id}";
+# fixed typo
+#     elmo:target dbeerpedia:SubjectParameter;
+      elmo:target elmo:SubjectParameter;
   .
 }
