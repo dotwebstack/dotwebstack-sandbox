@@ -27,7 +27,7 @@ GRAPH dbeerpedia:Theatre {
     elmo:backend dbeerpedia:Backend;
     elmo:resultType elmo-resulttype:Tuple;
     elmo:optionalParameter dbeerpedia:FteParam;
-    elmo:query "SELECT ?name WHERE { ?s rdfs:label ?name . ?s a <http://dbeerpedia.org#Brewery> }";
+    elmo:query "SELECT ?naam WHERE { ?s rdfs:label ?naam . ?s a <http://dbeerpedia.org#Brewery> }";
   .
   
   dbeerpedia:TupleBrewery a elmo:InformationProduct;
@@ -36,14 +36,21 @@ GRAPH dbeerpedia:Theatre {
     elmo:resultType elmo-resulttype:Tuple;
     elmo:requiredParameter dbeerpedia:IdFilter;
     elmo:query """
-      SELECT ?naam ?sinds ?fte ?oprichting ?plaats
+      SELECT ?naam ?website ?kvk ?sinds ?provincie
         WHERE {
-          BIND(<http://dbeerpedia.org/id/brewery/${id}> as ?s)
-            ?s dbeerpedia:name ?naam ;
-            dbeerpedia:yearOfFoundation ?sinds ;
-            dbeerpedia:fte ?fte ;
-            dbeerpedia:dateOfFoundation ?oprichting ;
-            dbeerpedia:place ?plaats .
+#  this type of binding not permitted on all sparql endpoints		
+#          BIND(<http://dbeerpedia.org/id/brewery/${id}> as ?s)
+#            ?s dbeerpedia:name ?naam ;
+#  not in line with provided example data
+#            dbeerpedia:yearOfFoundation ?sinds ;
+#            dbeerpedia:fte ?fte ;
+#            dbeerpedia:dateOfFoundation ?oprichting ;
+#            dbeerpedia:place ?plaats .
+          <http://dbeerpedia.org/id/brewery/${id}> dbeerpedia:name ?naam .
+            OPTIONAL {<http://dbeerpedia.org/id/brewery/${id}> dbeerpedia:url ?website } .
+            OPTIONAL {<http://dbeerpedia.org/id/brewery/${id}> dbeerpedia:kvk ?kvk} .
+            OPTIONAL {<http://dbeerpedia.org/id/brewery/${id}> dbeerpedia:opgericht ?sinds } .
+            OPTIONAL {<http://dbeerpedia.org/id/brewery/${id}> dbeerpedia:provincie ?provincie }.
          }
     """;
   .
@@ -61,10 +68,13 @@ GRAPH dbeerpedia:Theatre {
     elmo:backend dbeerpedia:Backend;
     elmo:query '''
       CONSTRUCT {
-        <{$SUBJECT}> ?p ?o
+# fixed typo
+#		<{$SUBJECT}> ?p ?o
+		<${SUBJECT}> ?p ?o
       }
       WHERE {
-        <{$SUBJECT}> ?p ?o
+#       <{$SUBJECT}> ?p ?o
+        <${SUBJECT}> ?p ?o
       }
     ''';
   .

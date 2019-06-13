@@ -31,7 +31,11 @@ dbeerpedia:GraphBreweryListRepresentation a elmo:Representation;
   .
 
   dbeerpedia:ResourceRepresentation a elmo:Representation;
-      elmo:pathPattern "/doc/{reference}";
+# 1. example data has longer pathpattern
+# 2. accept also id-uri wich will be 303-redirected tot doc-uri
+#     elmo:pathPattern "/doc/{reference}";
+      elmo:pathPattern "/doc/{reference}/{id}";
+      elmo:pathPattern "/id/{reference}/{id}";
       elmo:stage dbeerpedia:Stage;
       elmo:parameterMapper dbeerpedia:SubjectFromUrl;
       elmo:informationProduct dbeerpedia:ResourceInformationProduct
